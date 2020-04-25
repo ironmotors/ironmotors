@@ -3,7 +3,22 @@ const Schema = mongoose.Schema
 
 const userSchema = new Schema({
     username: String,
-    password: String
+    email: String,
+    password: String,
+    profilePicPath: String,
+    age: Number,
+    address: String,
+    dni: String,
+    phoneNumber: Number,
+    role: {
+        type: String,
+        enum : ['GUEST', 'USER', 'ADMIN'],
+        default : 'GUEST'
+  },
+    // cardName: String,
+    // cardNumber: Number,
+    // cardExpiration: Number,
+    // cardSecretCode: Number
 }, {
     timestamps: true
 })
