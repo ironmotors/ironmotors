@@ -53,9 +53,10 @@ const carSchema = new Schema({
     },
     adStatus: {
         type: String,
-        enum: ["On sale", "Sold", "Inactive"],
+        enum: ["On sale", "Sold", "Inactive", "Reserved"],
         required: true
     }
+    // ownerName
 
 }, {
     timestamps: true
