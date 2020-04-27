@@ -12,7 +12,7 @@ const carSchema = new Schema({
         required: true
     },
     manufacturingYear: {
-        type: Number,
+        type: Date,
         required: true
     },
     plate: {

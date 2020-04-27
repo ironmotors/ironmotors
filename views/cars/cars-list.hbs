@@ -1,0 +1,30 @@
+<h1>{{title}}</h1>
+<div class="info">
+
+    <canvas id="myMap"></canvas>
+
+    <h3>List of all cars</h3>
+    <a href="/cars/create">Create new car</a>
+    <ul>
+        {{#each allCars}}
+
+        <h3>{{brand}} | {{model}}</h3>
+
+        <li>
+            <a class="btn btn-info" href="/cars/{{_id}}/details">Ver</a>
+
+            <a class="btn btn-info" href="/cars/{{_id}}/edit">Editar</a>
+            |
+            <form action="/cars/{{_id}}/delete" method="POST">
+                <button class="btn btn-danger" type="submit">Borrar</a>
+            </form>
+        </li>
+        {{/each }}
+    </ul>
+</div>
+
+{{!-- AXIOS   Y API GOOGLE MAPS   
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/main.js"></script>
+<script src="/javascripts/mapStyles.js"> </script> --}}
+{{!-- <script src="https://maps.googleapis.com/maps/api/js?key=INSERTAR KEY&callback=initMap"></script>  --}}
