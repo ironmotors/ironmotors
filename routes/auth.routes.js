@@ -1,6 +1,8 @@
 const express = require("express")
 const router = express.Router()
 const passport = require("passport")
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
+
 
 const User = require("../models/user.model")
 
@@ -9,8 +11,8 @@ const bcryptSalt = 10
 
 
 // User signup
-router.get("/signup", (req, res) => res.render("auth/signup"))
-router.post("/signup", (req, res, next) => {
+router.get("/signup", ensureLoggedOut(), (req, res) => res.render("auth/signup"))
+router.post("/signup", ensureLoggedOut(), (req, res, next) => {
 
     const { username, password } = req.body
 
@@ -18,6 +20,7 @@ router.post("/signup", (req, res, next) => {
         res.render("auth/signup", { errorMsg: "Rellena el usuario y la contraseña" })
         return
     }
+
 
     User.findOne({ username })
         .then(user => {
@@ -39,7 +42,7 @@ router.post("/signup", (req, res, next) => {
 // User login
 router.get('/login', (req, res) => res.render('auth/login', { "errorMsg": req.flash("error") }))
 router.post('/login', passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/profile",
     failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true,
@@ -48,9 +51,11 @@ router.post('/login', passport.authenticate("local", {
 
 
 // User logout
-router.get("/logout", (req, res) => {
+router.get("/logout", ensureLoggedIn('/login'), (req, res) => {
     req.logout()
     res.redirect("/login")
 })
+
+
 
 module.exports = router

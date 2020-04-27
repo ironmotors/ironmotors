@@ -29,7 +29,7 @@ Id  |   Method  |   Path               |   Description
 21  |   get     | /login               | Muestra el formulario para loguearse (‘login.hbs’)
 22  |   post    | /login               | Loguea al usuario
 23  |   get     | /profile/:id         | Muestra los datos del usuario una vez logueado (‘profile.hbs’)
-24  |   get     | /profile/edi/:id     | Muestra el formulario relleno para editar los datos del usuario (‘profile-edit.hbs’)
+24  |   get     | /profile/edit/:id     | Muestra el formulario relleno para editar los datos del usuario (‘profile-edit.hbs’)
 25  |   post    | /profile/edit/:id    | Edita los datos del usuario en la BBDD
 26  |   get     | /profile/delete/:id  | Elimina de la BBDD el usuario
 27  |   get     | /users               | Muestra una lista de los usuarios registrados (‘users-list.hbs’)
