@@ -14,22 +14,22 @@ router.get('/', ensureLoggedIn('/profile'), (req, res, next) => {
 
 router.get('/edit/:id', ensureLoggedIn('/profile'), (req, res, next) => {
     User.findById(req.user.id)
-        .then(() => res.render('profile/profile-edit'))
+        .then((editUser) => res.render('profile/profile-edit', { editUser }))
         .catch(err => next(new Error(err)))
 })
 
-router.post('/edit/:id', cloudUploader.single('profilePicPath'), (req, res, next) => {
+router.post('/edit/:id', cloudUploader.single('paco'), (req, res, next) => {
     const editUser =
-        {
-            username: req.body.username,
-            email: req.body.email,
-            profilePicPath: req.file.url,
-            age: req.body.age,
-            address: req.body.address,
-            dni: req.body.dni,
-            phoneNumber: req.body.phoneNumber
-        } 
-    User.findByIdAndUpdate(req.params.id, { editUser }, { new: true })
+    {
+        username: req.body.username,
+        email: req.body.email,
+        profilePicPath: req.file.url,
+        age: req.body.age,
+        address: req.body.address,
+        dni: req.body.dni,
+        phoneNumber: req.body.phoneNumber
+    } 
+    User.findByIdAndUpdate(req.params.id, editUser, { new: true })
         .then(() => res.redirect('/profile'))
         .catch(err => next(new Error(err)))
 })
