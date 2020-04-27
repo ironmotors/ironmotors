@@ -1,1 +1,41 @@
-<h1>Editar perfil de {{theUser}}</h1>
+<h1>Editar perfil de {{username}}</h1>
+
+<div class="container">
+
+    <div class="col-md-6">
+      <form action="/profile/edit/{{_id}}" method="post">
+        <div class="form-group">
+          <label for="name-input">Nombre de usuario</label>
+          <input name="username" type="text" class="form-control" id="name-input" value="{{username}}">
+        </div>
+        <div class="form-group">
+          <label for="description-input">Email</label>
+          <input name="email" type="email" class="form-control" id="description-input" value="{{email}}">
+        </div>
+        <div class="form-group">
+          <label for="inversions-input">Imagen de Perfil</label>
+          <input name="profilePicPath" type="file" class="form-control" id="inversions-input">
+        </div>
+        <div class="form-group">
+          <label for="length-input">Edad</label>
+          <input name="age" type="number" class="form-control" id="length-input" value="{{age}}">
+        </div>
+        <div class="form-group">
+          <label for="length-input">Dirección</label>
+          <input name="address" type="text" class="form-control" id="length-input" value="{{address}}">
+        </div>
+        <div class="form-group">
+          <label for="length-input">DNI</label>
+          <input name="dni" type="number" class="form-control" id="length-input" value="{{dni}}">
+        </div>
+        <div class="form-group">
+          <label for="length-input">Número de teléfono</label>
+          <input name="phoneNumber" type="tel" class="form-control" id="length-input" value="{{phoneNumber}}">
+        </div>
+         <button type="submit" class="btn btn-dark">Guardar edición</button>
+        <a href="/profile" class="btn btn-dark">Volver</a>
+
+      </form>
+    </div>
+</div>
+</form>

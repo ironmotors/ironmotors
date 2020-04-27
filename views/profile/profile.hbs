@@ -1,4 +1,13 @@
-<h1>Welcome, {{theUser}}! </h1>
 
 
-<a href="/profile-edit">Editar Usuario</a>
+    <h1>Welcome,  {{username}}! </h1>
+
+    <p>Email: {{email}}</p>
+    <p>Foto de Perfil{{profilePicPath}}</p>
+    <p>Edad: {{age}}</p>
+    <p>Dirección: {{address}}</p>
+    <p>DNI: {{dni}}</p>
+    <p> Número de teléfono: {{phoneNumber}}</p>
+
+
+<a href="/profile/edit/{{_id}}">Editar Usuario</a>
