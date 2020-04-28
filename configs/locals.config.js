@@ -1,3 +1,3 @@
 module.exports = app => {
-    app.locals.title = 'Social Motors'
+    app.locals.pageName = 'Social Motors'
 }

@@ -1,14 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+            <h1>Welcome, {{username}}! </h1>
+
+            <p>Email: {{email}}</p>
+            <p>Foto de Perfil: </p>
+            <img class="profile" src="{{profilePicPath}}">
+            <p>Edad: {{age}}</p>
+            <p>Dirección: {{address}}</p>
+            <p>DNI: {{dni}}</p>
+            <p>Número de teléfono: {{phoneNumber}}</p>
+        </div>
 
 
-    <h1>Welcome,  {{username}}! </h1>
-
-    <p>Email: {{email}}</p>
-    <p>Foto de Perfil: </p>
-    <img src="{{profilePicPath}}">
-    <p>Edad: {{age}}</p>
-    <p>Dirección: {{address}}</p>
-    <p>DNI: {{dni}}</p>
-    <p>Número de teléfono: {{phoneNumber}}</p>
-
-
-<a href="/profile/edit/{{_id}}" class=" btn btn-dark">Editar Usuario</a>
+    </div>
+    <a href="/profile/edit/{{_id}}" class=" btn btn-dark">Editar Usuario</a>
+</div>

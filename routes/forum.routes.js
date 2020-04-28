@@ -25,32 +25,39 @@ router.post('/create', cloudUploader.single('pepe'), ensureLoggedIn(), (req, res
         .catch(err => next(new Error(err)))
 })
 
-router.get('/', (req, res, next) => {
+router.get('/', ensureLoggedIn(), (req, res, next) => {
     Post.find()
-        // .populate('creatorId')
+        .populate('creatorId')
         .then(allPost => res.render('forum/forum-list', { allPost }))
         .catch(err => next(new Error(err)))
 })
 
-// router.get('/edit/:id', (req, res, next) => res.render('forum/forum-edit'))
+router.get('/edit/:id', ensureLoggedIn(), (req, res, next) => {
+    Post.findById(req.params.id)
+        .populate('creatorId')
+        .then((editPost) => res.render('forum/forum-edit',  editPost ))
+        .catch(err => next(new Error(err)))
+}) 
 
-// router.post('/edit/:id', (req, res, next) => {
-//     const editPost =
-//     {
-//         title: req.body.title,
-//         subtitle: req.body.subtitle,
-//         comment: req.body.comment,
-//         // postPicPath: req.file.url,
-//         // creatorId: req.body.creatorId
-//     }
-//     Post.findByIdAndUpdate(req.params.id,  editPost , { new: true })
-//         .then(() => res.redirect('/forum'))
-//         .catch(err => next(new Error(err)))
-// })
 
-// router.get('/delete/:id', (req, res, next) => {
-//     console.log(req.post.id)
-//     Post.findByIdAndRemove(req.post.id)
-//         .then(() => res.redirect('/'))
-// })
+router.post('/edit/:id', cloudUploader.single('paco'), ensureLoggedIn(), (req, res, next) => {
+    const editPost =
+    {
+        title: req.body.title,
+        subtitle: req.body.subtitle,
+        comment: req.body.comment,
+        postPicPath: req.file.url,
+        creatorId: req.user._id
+    }
+    Post.findByIdAndUpdate(req.params.id, editPost, { new: true })
+        .then(() => res.redirect('/forum'))
+        .catch(err => next(new Error(err)))
+})
+
+router.get('/delete', ensureLoggedIn(), (req, res, next) => {
+    console.log(req.user.id)
+    Post.findByIdAndDelete(req.query.id)
+        .then(() => res.redirect('/forum'))
+        .catch(err => next(new Error(err)))
+})
 module.exports = router
