@@ -1,0 +1,80 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h1 style="font-weight: 100">Nuevo coche en venta</h1>
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/cars/create" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="brand-list">Marca</label>
+                    <select name="brand" class="form-control" id="brand-list">
+                        <option>Selecionar</option>
+                        {{#each allCars}}
+                        <option value="{{brand}}">{{brand}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="model-input">Modelo</label>
+                    <input name="model" type="text" class="form-control" id="model-input">
+                </div>
+                {{!-- <div class="form-group">
+                    <label for="picture-input">Imagen</label>
+                    <input name="pepe" type="file" class="form-control" id="picture-input">
+                </div> --}}
+                <div class="form-group">
+                    <label for="manufacturingYear-input">Feacha de primera matriculación</label>
+                    <input name="manufacturingYear" type="date" class="form-control" id="manufacturingYear-input">
+                </div>
+                <div class="form-group">
+                    <label for="plate-input">Matricula</label>
+                    <input name="plate" type="text" class="form-control" id="plate-input">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Descripcion del vehiculo</label>
+                    <input name="description" type="text" class="form-control" id="description-input">
+                </div>
+                <div class="form-group">
+                    <label for="kilometres-input">Kilometros</label>
+                    <input name="kilometres" type="number" class="form-control" id="kilometres-input">
+                </div>
+                <div class="form-group">
+                    <label for="state-list">Estado del vehiculo:</label>
+                    <select name="state" class="form-control" id="state-list">
+                        <option>Seleccionar</option>
+                        {{#each allCars}}
+                        <option value="{{state}}">{{state}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price-input">Precio</label>
+                    <input name="price" type="number" class="form-control" id="price-input">
+                </div>
+                <div class="form-group">
+                    <label for="adStatus-list">Estado del anuncio:</label>
+                    <select name="adStatus" class="form-control" id="state-list">
+                        <option>Seleccionar</option>
+                        {{#each allCars}}
+                        <option value="{{adStatus}}">{{adStatus}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div>
+                    <label for="location">Localizacion</label>
+                    <input type="text" name="latitud" id="coordinate" placeholder="latitud">
+                    <input type="text" name="longitud" id="location" placeholder="longitud">
+                </div>
+
+                <button type="submit" class="btn btn-dark">Crear anuncio</button>
+                <a href="/cars" class="btn btn-dark">Volver</a>
+
+            </form>
+        </div>
+
+    </div>
+</div>

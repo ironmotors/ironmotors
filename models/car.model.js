@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const carSchema = new Schema({
     brand: {
         type: String,
-        enum: ["Abarth", "Alfa Romeo", "Alpine", "Aston Martin", "Audi", "Bentley", "BMW", "Borgward", "Bugatti", "BYD", "Cadillac", "Caterham", "Chevrolet", "Citroën", "Cupra", "Dacia", "Dodge", "DS Automobiles", "Faraday Future", "Ferrari", "Fiat", "Ford", "Fornasari", "GTA Motor", "Honda", "Hurtan", "Hyundai", "Infiniti", "Isuzu", "Iveco", "Jaguar", "Jeep", "KIA Motors", "Koenigsegg", "KTM", "Lada", "Lamborghini", "Lancia", "Land Rover", "Lexus", "Lotus", "Mahindra", "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "Mini", "Mitsubishi", "Morgan", "Nissan", "Opel", "Pagani", "Peugeot", "Piaggio", "Polaris", "Polestar", "Porsche", "Renault", "Rolls-Royce", "Saab", "SEAT", "Škoda", "Smart", "SsangYong", "Subaru", "Suzuki", "TATA", "Tesla", "Toyota", "Tramontana", "UROVESA", "Volkswagen", "Volvo", "W Motors"],
+        enum: ["Abarth", "Alfa Romeo", "Alpine", "Aston Martin", "Audi", "Bentley", "BMW", "Borgward", "Bugatti", "Buick", "BYD", "Cadillac", "Caterham", "Chevrolet", "Citroën", "Cupra", "Dacia", "Dodge", "DS Automobiles", "Faraday Future", "Ferrari", "Fiat", "Ford", "Fornasari", "GTA Motor", "Honda", "Hurtan", "Hyundai", "Infiniti", "Isuzu", "Iveco", "Jaguar", "Jeep", "KIA Motors", "Koenigsegg", "KTM", "Lada", "Lamborghini", "Lancia", "Land Rover", "Lexus", "Lotus", "Mahindra", "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "Mini", "Mitsubishi", "Morgan", "Nash", "Nissan", "Opel", "Pagani", "Peugeot", "Piaggio", "Polaris", "Polestar", "Porsche", "Renault", "Rolls-Royce", "Saab", "SEAT", "Škoda", "Smart", "SsangYong", "Subaru", "Suzuki", "TATA", "Tesla", "Toyota", "Tramontana", "UROVESA", "Volkswagen", "Volvo", "W Motors"],
         required: true
     },
     model: {
@@ -12,7 +12,7 @@ const carSchema = new Schema({
         required: true
     },
     manufacturingYear: {
-        type: Number,
+        type: Date,
         required: true
     },
     plate: {
@@ -44,8 +44,7 @@ const carSchema = new Schema({
         type: {
             type: String
         },
-        coordinates: [Number],
-        required: true
+        coordinates: [Number]
     },
     price: {
         type: Number,
@@ -56,7 +55,6 @@ const carSchema = new Schema({
         enum: ["On sale", "Sold", "Inactive", "Reserved"],
         required: true
     }
-    // ownerName
 
 }, {
     timestamps: true

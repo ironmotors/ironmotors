@@ -1,0 +1,44 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h1 style="font-weight: 100">{{brand}} | {{model}}</h1>
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="container coasters-index">
+
+                <h4>Descripción</h4>
+                <p>{{description}}</p>
+                <p><strong>Kilometros: </strong> {{kilometres}} Km | <strong> Precio: </strong> {{price}}</p>
+                <p>Matricula: {{plate}} | Estado del coche: {{state}}</p>
+
+                <h4>Localización</h4>
+                <ul>
+                    <li>Latitud: {{location.coordinates.[0]}}</li>
+                    <li>Longitud: {{location.coordinates.[1]}}</li>
+                </ul>
+
+                <hr>
+
+                <h5>El anunciante: </h5>
+                <p><strong>Nombre</strong>: {{creatorID.username}}</p>
+                <p><strong>Descripción</strong>: {{creatorID.phonenumber}}</p>
+
+                <div>
+                    <a href="/cars/{{_id}}/edit">Editar lugar</a>
+
+                    <a href="/cars" class="btn btn-dark">Volver</a>
+                </div>
+                
+                <form action="/cars/{{_id}}/delete" method="POST">
+                    <button class="btn btn-danger" type="submit">Borrar</a>
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
