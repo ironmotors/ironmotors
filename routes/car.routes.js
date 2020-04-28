@@ -31,17 +31,15 @@ router.get("/create", (req, res, next) => {
     .catch((err) => next(new Error(err)));
 });
 
-router.post(
-  "/create",
-  /*cloudUploader.single("pepe"),*/ (req, res, next) => {
-    console.log("hola");
-
+router.post("/create", cloudUploader.single("imgPathForm"), (req, res, next) => {
     const location = {
       type: "Point",
       coordinates: [req.body.latitud, req.body.longitud],
     };
 
-    const newCar = new Car({
+    console.log(req.body, req.file.url)
+
+    User.create({
       brand: req.body.brand,
       model: req.body.model,
       carImagePath: req.file.url,
@@ -53,16 +51,9 @@ router.post(
       location,
       price: req.body.price,
       adStatus: req.body.adStatus,
-    });
-    console.log(req.body);
-
-    newCar.save((err) => {
-      if (err) {
-        next(err);
-      } else {
-        res.redirect("/cars");
-      }
-    });
+    })
+      .then(() => res.redirect("/cars"))
+      .catch((err) => next(new Error(err)));
   }
 );
 
@@ -74,13 +65,15 @@ router.get("/:car_id/edit", (req, res, next) => {
 });
 
 router.post("/:car_id/edit", (req, res, next) => {
-    
-    const location = { type: 'Point', coordinates: [req.body.latitud, req.body.longitud] }
-    const { brand, model, manufacturingYear, plate, description } = req.body;
+  const location = {
+    type: "Point",
+    coordinates: [req.body.latitud, req.body.longitud],
+  };
+  const { brand, model, manufacturingYear, plate, description } = req.body;
 
   Car.findByIdAndUpdate(
     req.params.car_id,
-    { brand, model, manufacturingYear, plate, description, location},
+    { brand, model, manufacturingYear, plate, description, location },
     { new: true }
   )
     .then((editedCar) => res.redirect(`/cars/${editedCar._id}/details`))
@@ -95,3 +88,37 @@ router.post("/:car_id/delete", (req, res, next) => {
 });
 
 module.exports = router;
+
+// router.post(  "/create",
+//   /*cloudUploader.single("pepe"),*/ (req, res, next) => {
+//     console.log("hola");
+
+//     const location = {
+//       type: "Point",
+//       coordinates: [req.body.latitud, req.body.longitud],
+//     };
+
+//     const newCar = new Car({
+//       brand: req.body.brand,
+//       model: req.body.model,
+//       carImagePath: req.file.url,
+//       manufacturingYear: req.body.manufacturingYear,
+//       plate: req.body.plate,
+//       description: req.body.description,
+//       state: req.body.state,
+//       kilometres: req.body.kilometres,
+//       location,
+//       price: req.body.price,
+//       adStatus: req.body.adStatus,
+//     });
+//     console.log(req.body);
+
+//     newCar.save((err) => {
+//       if (err) {
+//         next(err);
+//       } else {
+//         res.redirect("/cars");
+//       }
+//     });
+//   }
+// );

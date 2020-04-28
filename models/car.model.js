@@ -5,27 +5,27 @@ const carSchema = new Schema({
     brand: {
         type: String,
         enum: ["Abarth", "Alfa Romeo", "Alpine", "Aston Martin", "Audi", "Bentley", "BMW", "Borgward", "Bugatti", "Buick", "BYD", "Cadillac", "Caterham", "Chevrolet", "Citroën", "Cupra", "Dacia", "Dodge", "DS Automobiles", "Faraday Future", "Ferrari", "Fiat", "Ford", "Fornasari", "GTA Motor", "Honda", "Hurtan", "Hyundai", "Infiniti", "Isuzu", "Iveco", "Jaguar", "Jeep", "KIA Motors", "Koenigsegg", "KTM", "Lada", "Lamborghini", "Lancia", "Land Rover", "Lexus", "Lotus", "Mahindra", "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "Mini", "Mitsubishi", "Morgan", "Nash", "Nissan", "Opel", "Pagani", "Peugeot", "Piaggio", "Polaris", "Polestar", "Porsche", "Renault", "Rolls-Royce", "Saab", "SEAT", "Škoda", "Smart", "SsangYong", "Subaru", "Suzuki", "TATA", "Tesla", "Toyota", "Tramontana", "UROVESA", "Volkswagen", "Volvo", "W Motors"],
-        required: true
+        // required: true
     },
     model: {
         type: String,
-        required: true
+        // required: true
     },
     manufacturingYear: {
         type: Date,
-        required: true
+        // required: true
     },
     plate: {
         type: String,
-        required: true
+        // required: true
     },
     description: {
         type: String,
-        required: true
+        // required: true
     },
     carImagePath: {
         type: [String],
-        required: true
+        // required: true
     },
     creatorId: {
          type: Schema.Types.ObjectId,
@@ -34,11 +34,11 @@ const carSchema = new Schema({
     state: {
         type: String,
         enum: ["New", "Used", "KM0"],
-        required: true
+        // required: true
     },
     kilometres: {
         type: Number,
-        required: true
+        // required: true
     },
     location: {
         type: {
@@ -48,12 +48,12 @@ const carSchema = new Schema({
     },
     price: {
         type: Number,
-        required: true
+        // required: true
     },
     adStatus: {
         type: String,
         enum: ["On sale", "Sold", "Inactive", "Reserved"],
-        required: true
+        // required: true
     }
 
 }, {
