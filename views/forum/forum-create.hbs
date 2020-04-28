@@ -8,26 +8,26 @@
             <form action="/forum/create" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title-input">Titulo</label>
-                    <input type="text" name=="title" class="form-control" id="title-input" value="{{this.title}}">
+                    <input type="text" name="title" class="form-control" id="title-input">
                 </div>
                 <div class="form-group">
                     <label for="subtitle-input">Subtitulo</label>
-                    <input type="text" name=="subtitle" class="form-control" id="subtitle-input" value="{{subtitle}}">
+                    <input type="text" name="subtitle" class="form-control" id="subtitle-input" value="{{subtitle}}">
                 </div>
                 <div class="form-group">
                     <label for="comment-input">Comentario</label>
-                    <input type="text" name=="comment" class="form-control" id="comment-input" value="{{comment}}">
+                    <input type="text" name="comment" class="form-control" id="comment-input" value="{{comment}}">
                 </div>
-                {{!-- <div class="form-group">
+                <div class="form-group">
                     <label for="postpic-input">Imagen</label>
-                    <input type="file" name=="paco" class="form-control" id="postpic-input">
-                </div> --}}
+                    <input type="file" name="pepe" class="form-control" id="postpic-input">
+                </div> 
                 <div class="form-group">
                     <label for="creator-input">Usuario</label>
-                    <input type="text" name=="creatorId" class="form-control" id="creator-input" value="{{_id}}">
+                    <input type="text" name="creatorId" class="form-control" id="creator-input" value="{{_id}}">
                 </div>
-                <button type="submit" class=" btn btn-dark">Crear Post</button>
-                <a href="/forum" class=" btn btn-dark">Volver</a>
+                <button type="submit" class="btn btn-dark">Crear Post</button>
+                <a href="/forum" class="btn btn-dark">Volver</a>
             </form>
         </div>
     </div>
