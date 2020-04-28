@@ -34,4 +34,11 @@ router.post('/edit/:id', cloudUploader.single('paco'), (req, res, next) => {
         .catch(err => next(new Error(err)))
 })
 
+router.get('/delete/:id', (req, res, next) => {
+    console.log(req.user.id)
+    User.findByIdAndRemove(req.user.id)
+        .then(() => res.redirect('/'))
+        .catch(err => next(new Error(err)))
+})
+
 module.exports = router

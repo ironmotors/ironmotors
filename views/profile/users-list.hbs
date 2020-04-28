@@ -1,0 +1,15 @@
+<h1>Lista de usuarios</h1>
+
+<div class="container">
+{{#each allUsers}}
+    <div class="row">
+        <div class="col-md-4">
+
+            <p>Nombre de Usuario: {{username}}</p>
+            <img src="{{profilePicPath}}" alt="{{username}}">
+            <p>Número de teléfono: {{phoneNumber}}</p>
+
+        </div>
+    </div>
+{{/each}}
+</div>
