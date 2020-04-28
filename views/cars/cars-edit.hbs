@@ -3,65 +3,82 @@
     <div class="row">
 
         <div class="col-md-6">
-            <h1 style="font-weight: 100">Nuevo coche en venta</h1>
+            <h1 style="font-weight: 100">{{this.brand}} | {{this.model}}</h1>
         </div>
 
         <div class="col-md-6">
 
-            <form action="/cars/create" method="POST">
+            <form action="/cars/{{_id}}/edit" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="brand-list">Marca</label>
                     <select name="brand" class="form-control" id="brand-list">
-                        <option>Selecionar</option>
-                        {{#each allCars}}
+                        <option value="{{this.brand}}">{{this.brand}}</option>
+                        {{#each Car}}
                         <option value="{{brand}}">{{brand}}</option>
                         {{/each}}
+                        <option value="BMW">BMW</option>
+                        <option value="Cadillac">Cadillac</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="model-input">Modelo</label>
-                    <input name="model" type="text" class="form-control" id="model-input">
+                    <input name="model" value="{{this.model}}" type="text" class="form-control" id="model-input">
                 </div>
                 <div class="form-group">
-                    <label for="manufacturingYear-input">Feacha de primera matriculación</label>
-                    <input name="manufacturingYear" type="date" class="form-control" id="manufacturingYear-input">
+                    <label for="picture-input">Imagen</label>
+                    <input name="carImagePath" value="{{this.carImagePath}}" type="file" class="form-control"
+                        id="picture-input">
+                </div>
+                <div class="form-group">
+                    <label for="manufacturingYear-input">Fecha de primera matriculación</label>
+                    <input name="manufacturingYear" value="{{this.manufacturingYear}}" type="date" class="form-control"
+                        id="manufacturingYear-input">
                 </div>
                 <div class="form-group">
                     <label for="plate-input">Matricula</label>
-                    <input name="plate" type="text" class="form-control" id="plate-input">
+                    <input name="plate" value="{{this.plate}}" type="text" class="form-control" id="plate-input">
                 </div>
                 <div class="form-group">
                     <label for="description-input">Descripcion del vehiculo</label>
-                    <input name="description" type="text" class="form-control" id="description-input">
+                    <input name="description" value=" {{this.description}} " type="text" class="form-control"
+                        id="description-input">
                 </div>
                 <div class="form-group">
                     <label for="kilometres-input">Kilometros</label>
-                    <input name="kilometres" type="number" class="form-control" id="kilometres-input">
+                    <input name="kilometres" value="{{this.kilometres}}" type="number" class="form-control"
+                        id="kilometres-input">
                 </div>
                 <div class="form-group">
                     <label for="state-list">Estado del vehiculo:</label>
                     <select name="state" class="form-control" id="state-list">
-                        <option>Seleccionar</option>
-                        {{#each allCars}}
+                        <option value="{{this.state}}">{{this.state}}</option>
+                        <option value="New">New</option>
+                        {{#each Car}}
                         <option value="{{state}}">{{state}}</option>
                         {{/each}}
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="price-input">Precio</label>
-                    <input name="price" type="number" class="form-control" id="price-input">
+                    <input name="price" value="{{this.price}}" type="number" class="form-control" id="price-input">
                 </div>
                 <div class="form-group">
                     <label for="adStatus-list">Estado del anuncio:</label>
                     <select name="adStatus" class="form-control" id="state-list">
-                        <option>Seleccionar</option>
-                        {{#each allCars}}
+                        <option value="{{this.adStatus}}">{{this.adStatus}}</option>
+                        <option value="Reserved">Reserved</option>
+                        {{#each Car}}
                         <option value="{{adStatus}}">{{adStatus}}</option>
                         {{/each}}
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input name="latitud" type="text" class="form-control" id="latitud" value="{{this.location.coordinates.[0]}}">
+                    <input name="longitud" type="text" class="form-control" id="longitud" value="{{this.location.coordinates.[1]}}">
+                </div>
 
-                <button type="submit" class="btn btn-dark">Crear anuncio</button>
+                <button type="submit" class="btn btn-dark">Modificar anuncio</button>
                 <a href="/cars" class="btn btn-dark">Volver</a>
 
             </form>

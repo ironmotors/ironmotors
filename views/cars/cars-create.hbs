@@ -8,7 +8,7 @@
 
         <div class="col-md-6">
 
-            <form action="/cars/create" method="POST">
+            <form action="/cars/create" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="brand-list">Marca</label>
                     <select name="brand" class="form-control" id="brand-list">
@@ -22,6 +22,10 @@
                     <label for="model-input">Modelo</label>
                     <input name="model" type="text" class="form-control" id="model-input">
                 </div>
+                {{!-- <div class="form-group">
+                    <label for="picture-input">Imagen</label>
+                    <input name="pepe" type="file" class="form-control" id="picture-input">
+                </div> --}}
                 <div class="form-group">
                     <label for="manufacturingYear-input">Feacha de primera matriculación</label>
                     <input name="manufacturingYear" type="date" class="form-control" id="manufacturingYear-input">
@@ -59,6 +63,11 @@
                         <option value="{{adStatus}}">{{adStatus}}</option>
                         {{/each}}
                     </select>
+                </div>
+                <div>
+                    <label for="location">Localizacion</label>
+                    <input type="text" name="latitud" id="coordinate" placeholder="latitud">
+                    <input type="text" name="longitud" id="location" placeholder="longitud">
                 </div>
 
                 <button type="submit" class="btn btn-dark">Crear anuncio</button>
