@@ -20,7 +20,9 @@ require('./configs/locals.config')(app)
 // Base URLS
 app.use('/profile', require('./routes/profile.routes'))
 
+
 app.use('/', require('./routes/index.routes'))
 app.use('/', require('./routes/auth.routes'))
+app.use('/forum', require('./routes/forum.routes'))
 
 module.exports = app
