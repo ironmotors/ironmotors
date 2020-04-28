@@ -66,7 +66,7 @@ router.get('/auth/confirm/:confirmCode', (req, res, next) => {
 // User login
 router.get('/login', (req, res) => res.render('auth/login', { "errorMsg": req.flash("error") }))
 router.post('/login', passport.authenticate("local", {
-    successRedirect: "/profile",
+    successRedirect: "/forum",
     failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true,

@@ -1,2 +1,39 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>{{pageName}}</h1>
+<p>Bienvenido a {{pageName}}</p>
+
+<div class="container">
+    <div class="row justify-content-center">
+        {{#each cars}}
+            <div class="col-md-6 index-view">
+                <img src="{{carImagePath}}" alt="{{brand}}">
+                <p><strong>Marca:</strong> {{brand}}</p>
+                <p><strong>Modelo:</strong> {{model}}</p>
+                <p><strong>Año de construcción:</strong> {{manufacturingYear}}</p>
+                <p><strong>Descripción:</strong> {{description}}</p>
+                <p><strong>Usuario:</strong> {{creatorId.username}}</p>
+                <p><strong>Precio:</strong> {{price}}</p>
+                <p><strong>Estado:</strong> {{adStatus}}</p>
+                <a href="/cars" class="btn btn-dark">Todos los coches</a>
+
+            </div>
+        {{/each}}
+
+    </div>
+</div>
+<hr>
+
+<div class="container">
+    <div class="row">
+        {{#each posts}}
+            <div class="col-md-6">
+                <p><strong>Usuario:</strong>{{creatorId.username}}</p>
+                <img src="{{postPicPath}}" alt="{{creatorId.username}}">
+                <p><strong>Titulo:</strong>{{title}}</p>
+                <p><strong>Subtitulo:</strong>{{subtitle}}</p>
+                <p><strong>Comentario:</strong>{{comment}}</p>
+
+            </div>
+        {{/each}}
+
+    </div>
+</div>

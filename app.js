@@ -20,6 +20,7 @@ require('./configs/locals.config')(app)
 // Base URLS
 app.use('/profile', require('./routes/profile.routes'))
 
+app.use('/cars', require('./routes/car.routes'))
 
 app.use('/', require('./routes/index.routes'))
 app.use('/', require('./routes/auth.routes'))

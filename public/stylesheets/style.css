@@ -20,8 +20,27 @@ img {
   height: 50px;
   border-radius: 50%;
   border: 1px solid red; }
+
 #myMap {
   width: 100%;
   height: 400px; }
+
+.old-car {
+  width: 500px;
+  margin: 0 auto; }
+  .old-car img {
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    height: 100%; }
+
+.index-view {
+  width: 100%; }
+  .index-view img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 0;
+    border: none; }
 
 /*# sourceMappingURL=style.css.map */
