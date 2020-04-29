@@ -9,7 +9,7 @@ const User = require("../models/user.model");
 
 router.get("/", (req, res, next) => {
   Car.find()
-    .populate("creatorId")
+    .populate('creatorId')
     .then((allCars) => res.render("cars/cars-list", { allCars }))
     .catch((err) => console.log("Ha habido un error!", err));
 });
@@ -18,7 +18,7 @@ router.get("/", (req, res, next) => {
 
 router.get("/:carId/details", (req, res, next) => {
   Car.findById(req.params.carId)
-    .populate("creatorId")
+    .populate('creatorId')
     .then((car) => res.render("cars/cars-detail", car))
     .catch((err) => console.log("Ha habido un error!", err));
 });
@@ -31,18 +31,18 @@ router.get("/create", (req, res, next) => {
     .catch((err) => next(new Error(err)));
 });
 
-router.post("/create", cloudUploader.single("imgPathForm"), (req, res, next) => {
-    const location = {
-      type: "Point",
-      coordinates: [req.body.latitud, req.body.longitud],
-    };
+router.post("/create", /*cloudUploader.single("imgPathForm"),*/ (req, res, next) => {
+    // const location = {
+    //   type: "Point",
+    //   coordinates: [req.body.latitud, req.body.longitud],
+    // };
 
     console.log(req.body, req.file.url)
 
-    User.create({
+    Car.create({
       brand: req.body.brand,
       model: req.body.model,
-      carImagePath: req.file.url,
+      // carImagePath: req.file.url,
       manufacturingYear: req.body.manufacturingYear,
       plate: req.body.plate,
       description: req.body.description,
@@ -86,6 +86,27 @@ router.post("/:car_id/delete", (req, res, next) => {
     .then(res.redirect("/cars"))
     .catch((err) => console.log(`Error  ${err}`));
 });
+
+// Nodemailer send email to owner of the car
+
+const mailer = require('../configs/nodemailer.config')
+
+router.post('/contact', (req, res, next) => {
+  let { email, buyerEmail, subject, message } = req.body;
+
+  mailer.sendMail({
+    from: '"Social_Motors" <Social_Motors@gmail.com>',
+    to: email, buyerEmail,
+    subject: subject, 
+    text: message,
+    html: `<b>${message}</b>`
+  })
+  .then(info => res.render('email-sent', {email, subject, message, info}))
+  .catch(error => console.log(error));
+});
+
+
+
 
 module.exports = router;
 

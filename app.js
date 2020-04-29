@@ -25,5 +25,7 @@ app.use('/', require('./routes/index.routes'))
 app.use('/', require('./routes/auth.routes'))
 app.use('/cars', require('./routes/car.routes'))
 app.use('/forum', require('./routes/forum.routes'))
+app.use('/contact', require('./routes/contact.routes'))
+
 
 module.exports = app

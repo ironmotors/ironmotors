@@ -5,6 +5,36 @@
         <div class="col-md-6">
             <h1 style="font-weight: 100">{{brand}} | {{model}}</h1>
             <figure><img src="{{profilePicPath}}"></figure>
+
+            <form action="/cars/contact" method="POST" class="needs-validation" novalidate>
+                <div class="form-row">
+                    <div class="form-group mb-2">
+                        <label for="mail" class="sr-only">Email del propietario</label>
+                        <input name="email" type="text" readonly class="form-control-plaintext" id="mail"
+                            value="jotabajopinedo@gmail.com">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="asunto" class="sr-only">Asunto</label>
+                        <input name="subject" type="text" readonly class="form-control-plaintext" id="asunto"
+                            value="Estoy interesado en su {{brand}}||{{model}}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="mailInteresado">Tu email de contacto</label>
+                        <input name="buyerEmail" type="text" class="form-control" id="mailInteresado" placeholder="Ingrese su email"
+                            required>
+                        <div class="invalid-feedback">
+                            Es necesario tu email para mandarte una copia!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea name="message" class="form-control" id="mensaje" rows="3" required></textarea>
+                        <div class="invalid-feedback">
+                            Que quieres comunicarle al propietario!
+                        </div>
+                    </div>
+                    <button class="btn btn-dark" type="submit">Enviar mensaje</button>
+            </form>
         </div>
 
         <div class="col-md-6">
@@ -25,21 +55,45 @@
                 <hr>
 
                 <h5>El anunciante: </h5>
-                <p><strong>Nombre</strong>: {{creatorID.username}}</p>
-                <p><strong>Descripción</strong>: {{creatorID.phonenumber}}</p>
+                <p><strong>Nombre</strong>: {{this.creatorId.username}}</p>
+                <p><strong>Descripción</strong>: {{this.creatorId.phonenumber}}</p>
+
+
 
                 <div>
                     <a href="/cars/{{_id}}/edit">Editar lugar</a>
 
                     <a href="/cars" class="btn btn-dark">Volver</a>
                 </div>
-                
+
                 <form action="/cars/{{_id}}/delete" method="POST">
                     <button class="btn btn-danger" type="submit">Borrar</a>
                 </form>
-
 
             </div>
 
         </div>
     </div>
+
+
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
