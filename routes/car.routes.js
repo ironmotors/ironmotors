@@ -20,6 +20,9 @@ router.get("/", (req, res, next) => {
     .catch((err) => console.log("Ha habido un error!", err));
 });
 
+
+router.get('/cars-repair', (req, res, next) => res.render('cars/cars-repair'))
+
 // Read documents (details)
 
 router.get("/:carId/details", ensureLoggedIn('/login'), (req, res, next) => {

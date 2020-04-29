@@ -16,17 +16,21 @@ window.onload = () => {
 
 function getPlaces() {
     axios.get("/cars/api")
-        .then(placesApi => {
-            const place = placesApi.data
-            place.forEach(elm => {
-                console.log(elm)
+        .then(carsApi => {
+            const car = carsApi.data
+            car.forEach(elm => {
                 const center = {
                     lat: elm.location.coordinates[0],
                     lng: elm.location.coordinates[1]
                 }
+                
                 new google.maps.Marker({
                     position: center,
                     map: myMap,
+                    icon: {
+                        url: "images/car.png",
+                        scaledSize: new google.maps.Size(50, 50)
+                    },
                     title: elm.name
                 })
             })
