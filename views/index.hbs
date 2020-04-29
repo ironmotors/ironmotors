@@ -1,5 +1,5 @@
-<h1>{{pageName}}</h1>
-<p>Bienvenido a {{pageName}}</p>
+<h1>Bienvenido a {{pageName}}</h1>
+
 
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -37,7 +37,6 @@
                 <p><strong>Año de Fabricacion: </strong> {{manufacturingYear}}</p>
             </a>
         {{/each}}
-
     </div>
 </div>
 <hr>
@@ -46,7 +45,7 @@
     <div class="row justify-content-center">
         {{#each posts}}
             <div class="col-md-4">
-                <p><strong>Usuario: </strong>{{username}}</p>
+                <p><strong>Usuario: </strong>{{creatorId.username}}</p>
                 <img class="profile" src="{{postPicPath}}" alt="{{creatorId.username}}">
                 <p><strong>Titulo: </strong>{{title}}</p>
                 <p><strong>Subtitulo: </strong>{{subtitle}}</p>

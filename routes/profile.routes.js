@@ -10,19 +10,15 @@ const User = require ('../models/user.model')
 
 
 router.get('/', ensureLoggedIn(), (req, res, next) => {
-    const carPromise = Car.find().populate('creatorId')
+    const carPromise = Car.find({creatorId: req.user._id})
     const userPromise = User.findById(req.user.id)
-
     Promise.all([carPromise, userPromise])
-        .then(data => res.render('profile/profile', {cars: data[0], users: data[1]}))
+        .then(data => { 
+            console.log(data[0])
+            return res.render('profile/profile', { cars: data[0], users: data[1] })
+        })
         .catch(err => next(new Error(err)))
 })
-
-// router.get('/', ensureLoggedIn(), (req, res, next) => {
-//     User.findById(req.user.id)
-//         .then((theUser) => res.render('profile/profile', theUser))
-//         .catch(err => next(new Error(err)))
-// })
 
 router.get('/edit/:id', ensureLoggedIn(), (req, res, next) => {
     User.findById(req.user.id)

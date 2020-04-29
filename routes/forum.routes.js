@@ -53,9 +53,8 @@ router.post('/edit/:id', cloudUploader.single('paco'), ensureLoggedIn(), (req, r
         .catch(err => next(new Error(err)))
 })
 
-router.get('/delete', ensureLoggedIn(), (req, res, next) => {
-    console.log(req.user.id)
-    Post.findByIdAndDelete(req.query.id)
+router.get('/delete/:id', ensureLoggedIn(), (req, res, next) => {
+    Post.findByIdAndRemove(req.query.id)
         .then(() => res.redirect('/forum'))
         .catch(err => next(new Error(err)))
 })

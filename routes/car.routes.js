@@ -54,6 +54,7 @@ router.post("/create", cloudUploader.single("imgPathForm"), ensureLoggedIn(), (r
       model: req.body.model,
       carImagePath: req.file.url,
       manufacturingYear: req.body.manufacturingYear,
+      creatorId: req.user.id,
       plate: req.body.plate,
       description: req.body.description,
       state: req.body.state,

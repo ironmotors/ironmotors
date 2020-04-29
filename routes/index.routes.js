@@ -8,9 +8,9 @@ const Car = require('../models/car.model')
 
 
 router.get('/', (req, res, next) => {
-    const carPromise = Car.find().populate('creatorId')
-    const postPromise = Post.find().populate('creatorId')
-
+    const carPromise = Car.find()
+    const postPromise = Post.find(req.query.id).populate('creatorId')
+  
     Promise.all([carPromise, postPromise])
         .then(data => res.render('index', {cars: data[0], posts: data[1]}))
         .catch(err => next(new Error(err)))

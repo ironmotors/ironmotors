@@ -30,7 +30,7 @@ h1, h2, h3 {
 }
 .old-car{
   width:500px;
-  margin: 0 auto;
+  margin: 20px auto;
   img{
     border: none;
     border-radius: 0;
@@ -90,4 +90,14 @@ figure img{
   height: 100%;
   width: 100%;
   object-fit: contain;
+}
+.about-us{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p{
+    margin: 15px 0;
+  }
+
 }
