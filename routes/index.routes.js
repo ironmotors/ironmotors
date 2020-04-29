@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
         .catch(err => next(new Error(err)))
 })
 
-router.get("/:carId/details", ensureLoggedIn('/signup'), (req, res, next) => {
+router.get("/:carId/details", ensureLoggedIn('/login'), (req, res, next) => {
   Car.findById(req.params.carId)
     .populate("creatorId")
     .then((car) => res.render("cars/cars-detail", car))
