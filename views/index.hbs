@@ -1,5 +1,5 @@
-<h1>{{pageName}}</h1>
-<p>Bienvenido a {{pageName}}</p>
+<h1>Bienvenido a {{pageName}}</h1>
+
 
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -30,34 +30,26 @@
 <div class="container">
     <div class="row justify-content-center">
         {{#each cars}}
-            <div class="col-md-6 index-view">
+            <a href="/cars/{{_id}}/details" class="col-md-5 index-view card">
                 <img class="profile" src="{{carImagePath}}" alt="{{brand}}">
-                <p><strong>Marca:</strong> {{brand}}</p>
-                <p><strong>Modelo:</strong> {{model}}</p>
-                <p><strong>Año de Fabricacion:</strong> {{manufacturingYear}}</p>
-                <p><strong>Descripción:</strong> {{description}}</p>
-                <p><strong>Usuario:</strong> {{creatorId.username}}</p>
-                <p><strong>Precio:</strong> {{price}}</p>
-                <p><strong>Estado:</strong> {{adStatus}}</p>
-                <a href="/cars" class="btn btn-dark">Ver Detalles</a>
-
-            </div>
+                <p><strong>Marca: </strong> {{brand}}</p>
+                <p><strong>Modelo: </strong> {{model}}</p>
+                <p><strong>Año de Fabricacion: </strong> {{manufacturingYear}}</p>
+            </a>
         {{/each}}
-
     </div>
 </div>
 <hr>
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         {{#each posts}}
-            <div class="col-md-6">
-                <p><strong>Usuario:</strong>{{creatorId.username}}</p>
+            <div class="col-md-4">
+                <p><strong>Usuario: </strong>{{creatorId.username}}</p>
                 <img class="profile" src="{{postPicPath}}" alt="{{creatorId.username}}">
-                <p><strong>Titulo:</strong>{{title}}</p>
-                <p><strong>Subtitulo:</strong>{{subtitle}}</p>
-                <p><strong>Comentario:</strong>{{comment}}</p>
-
+                <p><strong>Titulo: </strong>{{title}}</p>
+                <p><strong>Subtitulo: </strong>{{subtitle}}</p>
+                <p><strong>Comentario: </strong>{{comment}}</p>
             </div>
         {{/each}}
 

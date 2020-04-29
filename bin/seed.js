@@ -23,12 +23,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 155000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409726, -3.709717]
     },
     price: 65000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Buick",
@@ -44,12 +44,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 95000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409715, -3.709706]
     },
     price: 19000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Ford",
@@ -65,12 +65,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 155000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409724, -3.709715]
     },
     price: 10000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Ford",
@@ -86,12 +86,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 15000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409722, -3.709714]
     },
     price: 20000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Porsche",
@@ -107,12 +107,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 205000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409727, -3.709718]
     },
     price: 10000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Mercedes-Benz",
@@ -128,12 +128,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 95000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409729, -3.709719]
     },
     price: 15000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Rolls-Royce",
@@ -149,12 +149,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 15000,
     location: { coordinates: [40.409725, -3.709716]
     },
     price: 60000,
-    adStatus: "On sale",
+    adStatus: "Reservado",
   },
   {
     brand: "Porsche",
@@ -172,10 +172,10 @@ const cars = [
     ownerName: "Social Motors",
     state: "KM0",
     kilometres: 100,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409712, -3.709704]
     },
     price: 90000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Volkswagen",
@@ -191,12 +191,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 150000,
     location: { coordinates: [40.409725, -3.709716]
     },
     price: 20000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Ford",
@@ -212,12 +212,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 25000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409825, -3.709816]
     },
     price: 50000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Cadillac",
@@ -233,12 +233,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 100000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409625, -3.709616]
     },
     price: 55000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Nash",
@@ -254,12 +254,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 19000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409255, -3.702516]
     },
     price: 63000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Chevrolet",
@@ -275,12 +275,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 18000,
     location: { coordinates: [40.409725, -3.709716]
     },
     price: 40000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Chevrolet",
@@ -296,12 +296,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 27000,
     location: { coordinates: [40.409725, -3.709716]
     },
     price: 34000,
-    adStatus: "On sale",
+    adStatus: "En venta",
   },
   {
     brand: "Ford",
@@ -317,12 +317,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 32000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409123, -3.709716]
     },
     price: 23000,
-    adStatus: "Reserved",
+    adStatus: "Reservado",
   },
   {
     brand: "Jaguar",
@@ -338,12 +338,12 @@ const cars = [
         role: 'ADMIN'
       },
     ownerName: "Social Motors",
-    state: "Used",
+    state: "Usado",
     kilometres: 18000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.409725, -3.709234]
     },
     price: 40000,
-    adStatus: "Sold",
+    adStatus: "Vendido",
   }
   
 ];

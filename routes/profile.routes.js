@@ -3,12 +3,20 @@ const router = express.Router()
 const passport = require("passport")
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const cloudUploader = require('../configs/cloudinary.config')
-
+const Car = require("../models/car.model");
 const User = require ('../models/user.model')
 
+
+
+
 router.get('/', ensureLoggedIn(), (req, res, next) => {
-    User.findById(req.user.id)
-        .then((theUser) => res.render('profile/profile', theUser))
+    const carPromise = Car.find({creatorId: req.user._id})
+    const userPromise = User.findById(req.user.id)
+    Promise.all([carPromise, userPromise])
+        .then(data => { 
+            console.log(data[0])
+            return res.render('profile/profile', { cars: data[0], users: data[1] })
+        })
         .catch(err => next(new Error(err)))
 })
 
@@ -19,7 +27,6 @@ router.get('/edit/:id', ensureLoggedIn(), (req, res, next) => {
 })
 
 router.post('/edit/:id', cloudUploader.single('paco'), ensureLoggedIn(), (req, res, next) => {
-    console.log(req.file.filename)
     const editUser =
     {
         username: req.body.username,

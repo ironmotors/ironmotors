@@ -1,12 +1,13 @@
 let myMap
+
 window.onload = () => {
-    const Vallekas = {
-        lat: 40.393664,
-        lng: -3.659637
+    const Madrid = {
+        lat: 40.409725,
+        lng: -3.709716
     };
     myMap = new google.maps.Map(document.getElementById('myMap'), {
-        zoom: 16,
-        center: Vallekas
+        zoom: 15,
+        center: Madrid
     })
     
     getPlaces()
@@ -14,10 +15,11 @@ window.onload = () => {
 
 
 function getPlaces() {
-    axios.get("/api")
+    axios.get("/cars/api")
         .then(placesApi => {
             const place = placesApi.data
             place.forEach(elm => {
+                console.log(elm)
                 const center = {
                     lat: elm.location.coordinates[0],
                     lng: elm.location.coordinates[1]
@@ -31,45 +33,3 @@ function getPlaces() {
         })
          .catch(error => console.log(error))
 }
-
-// let myMap
-
-// window.onload = () => {
-
-//     myMap = new google.maps.Map(document.getElementById('myMap'), {
-//         zoom: 16
-//     });
-
-//     getPlaces()
-
-// }
-
-
-
-// function getPlaces() {
-//     axios.get("/api")
-//         .then(response => {
-//             console.log("LA RESPUESTA DEL SERVIDOR ES", response)
-//             placeCars(response.data.car)
-//         })
-//         .catch(error => console.log(error))
-// }
-
-
-// function placePlaces(cars) {
-//     cars.forEach(car => {
-//         const center = {
-//             lat: car.location.coordinates[1],
-//             lng: car.location.coordinates[0]
-//         }
-//         new google.maps.Marker({
-//             position: center,
-//             map: myMap,
-//             title: place.name
-//         })
-//         myMap.setCenter({
-//             lat: cars[0].location.coordinates[1],
-//             lng: cars[0].location.coordinates[0]
-//         })
-//     })
-// }

@@ -27,7 +27,7 @@ h1, h2, h3 {
 
 .old-car {
   width: 500px;
-  margin: 0 auto; }
+  margin: 20px auto; }
   .old-car img {
     border: none;
     border-radius: 0;
@@ -42,5 +42,54 @@ h1, h2, h3 {
     object-fit: contain;
     border-radius: 0;
     border: none; }
+
+.card {
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0px -25px 107px -56px #8a8a8a;
+  transition: .3s all; }
+  .card p {
+    margin: 0; }
+
+.card:hover {
+  transform: scale(1.01);
+  text-decoration: none;
+  color: black; }
+
+footer {
+  background-color: rgba(138, 138, 138, 0.5);
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 50px; }
+
+figure img {
+  width: 100%; }
+
+.profile-car-img {
+  width: 100%;
+  margin: 10px 0;
+  transition: .3s all; }
+
+.profile-car-img:hover {
+  transform: scale(0.98);
+  filter: grayscale(70%); }
+
+.carousel-item {
+  height: 400px;
+  margin-bottom: 30px; }
+
+.carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain; }
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .about-us p {
+    margin: 15px 0; }
 
 /*# sourceMappingURL=style.css.map */

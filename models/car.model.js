@@ -12,7 +12,7 @@ const carSchema = new Schema({
         // required: true
     },
     manufacturingYear: {
-        type: Date,
+        type: String,
         // required: true
     },
     plate: {
@@ -33,7 +33,7 @@ const carSchema = new Schema({
     },
     state: {
         type: String,
-        enum: ["New", "Used", "KM0"],
+        enum: ["Nuevo", "Usado", "KM0"],
         // required: true
     },
     kilometres: {
@@ -52,7 +52,7 @@ const carSchema = new Schema({
     },
     adStatus: {
         type: String,
-        enum: ["On sale", "Sold", "Inactive", "Reserved"],
+        enum: ["En venta", "Vendido", "Reservado"],
         // required: true
     }
 

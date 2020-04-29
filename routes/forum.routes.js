@@ -11,7 +11,6 @@ const Post = require('../models/post.model')
 router.get('/create', ensureLoggedIn(), (req, res, next) => res.render('forum/forum-create'))
 
 router.post('/create', cloudUploader.single('pepe'), ensureLoggedIn(), (req, res, next) => {
-    console.log(req.body.title)
     const newPost =
     {
         title: req.body.title,
@@ -54,10 +53,36 @@ router.post('/edit/:id', cloudUploader.single('paco'), ensureLoggedIn(), (req, r
         .catch(err => next(new Error(err)))
 })
 
-router.get('/delete', ensureLoggedIn(), (req, res, next) => {
-    console.log(req.user.id)
-    Post.findByIdAndDelete(req.query.id)
+router.post('/delete/:id', ensureLoggedIn(), (req, res, next) => {
+    Post.findById(req.params.id)
+        .then((result) => {
+            if (result.creatorId == req.user.id) {
+                return result.id
+            } else {
+                return res.redirect('/forum')
+            }
+        })
+        .then((resultId) => Post.findByIdAndDelete(resultId))
         .then(() => res.redirect('/forum'))
         .catch(err => next(new Error(err)))
 })
+
+
+// router.post('/post-comment/delete/:id', checkAuth, (req, res, next) => {
+// 	const placePosted = req.body.reference
+// 	Comment.findById(req.params.id)
+// 		.then((result) => {
+// 			if (result.creatorId == req.user.id) {
+// 				return result.id
+// 			} else {
+// 				return res.redirect(`/works/show/${placePosted}`)
+// 			}
+// 		})
+// 		.then((resultId) => Comment.findByIdAndRemove(resultId))
+// 		.then(() => res.redirect(`/works/show/${placePosted}`))
+// 		.catch((err) => console.log(err))
+// })
+
+
+
 module.exports = router

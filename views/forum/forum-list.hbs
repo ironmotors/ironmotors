@@ -11,7 +11,9 @@
                         <p>Comentario: {{comment}}</p>
                         <p>Usuario: {{creatorId.username}}</p>
                         <a href="/forum/edit/{{_id}}" class="btn btn-dark">Editar Post</a>
-                        <a href="/forum/delete/{{_id}}" class="btn btn-dark">Borrar Post</a>
+                        <form action="/forum/delete/{{_id}}" method="POST">
+                            <input type="submit" class="btn btn-dark" value="Borrar Post">
+                        </form>
                 </div>
             {{/each}}
     </div>

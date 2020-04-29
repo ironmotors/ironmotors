@@ -32,6 +32,5 @@ Id  |   Method  |   Path               |   Description
 24  |   get     | /profile/edit/:id     | Muestra el formulario relleno para editar los datos del usuario (‘profile-edit.hbs’)
 25  |   post    | /profile/edit/:id    | Edita los datos del usuario en la BBDD
 26  |   get     | /profile/delete/:id  | Elimina de la BBDD el usuario
-27  |   get     | /users               | Muestra una lista de los usuarios registrados (‘users-list.hbs’)
-28  |   get     | /logout              | Desloguea al usuario
+27  |   get     | /logout              | Desloguea al usuario
 

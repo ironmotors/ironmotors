@@ -3,24 +3,29 @@
 
     <div id="myMap"></div>
 
-    <h3>List of all cars</h3>
-    <a href="/cars/create">Create new car</a>
-    <ul>
-        {{#each allCars}}
+    <h3>Lista de coches</h3>
+    <a href="/cars/create" class="btn btn-dark">Crear un coche</a>
 
-        <h3>{{brand}} | {{model}}</h3>
+    <div class="container">
+        <div class="row justify-content-center">
+            {{#each allCars}}
+                <div class="col-md-8">
 
-        <li>
-            <a class="btn btn-info" href="/cars/{{_id}}/details">Ver</a>
+                    <h3>{{brand}} | {{model}}</h3>
+                    <figure class="main-view-car"><img src="{{carImagePath}}"></figure>
+                    <p><strong>Propietario: </strong> {{creatorId.username}}</p>
 
-            <a class="btn btn-info" href="/cars/{{_id}}/edit">Editar</a>
-            |
-            <form action="/cars/{{_id}}/delete" method="POST">
-                <button class="btn btn-danger" type="submit">Borrar</a>
-            </form>
-        </li>
-        {{/each }}
-    </ul>
+                    <a class="btn btn-info" href="/cars/{{_id}}/details">Ver</a>
+
+                    {{!-- <a class="btn btn-info" href="/cars/{{_id}}/edit">Editar</a>
+                                    |
+                                    <form action="/cars/{{_id}}/delete" method="POST">
+                                        <button class="btn btn-danger" type="submit">Borrar</a>
+                                    </form> --}}
+                </div>
+            {{/each }}
+        </div>
+    </div>
 </div>
 
 {{!-- AXIOS   Y API GOOGLE MAPS    --}}
