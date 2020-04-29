@@ -62,7 +62,7 @@ router.post('/delete/:id', ensureLoggedIn(), (req, res, next) => {
                 return res.redirect('/forum')
             }
         })
-        .then((resultId) => Post.findByIdAndDelete(resultI))
+        .then((resultId) => Post.findByIdAndDelete(resultId))
         .then(() => res.redirect('/forum'))
         .catch(err => next(new Error(err)))
 })
