@@ -1,97 +1,120 @@
-<div class="container">
+<div class="row justify-content-end">
 
-    <div class="row">
+    <div class="col-md-6">
+        <h1 style="font-weight: 100">{{brand}} | {{model}}</h1>
+        <figure><img src="{{carImagePath}}"></figure>
+        <div class="row">
+            <div class="col-md-3">
+                {{!-- <a href="/cars/{{_id}}/edit">Editar lugar</a> --}}
 
-        <div class="col-md-6">
-            <h1 style="font-weight: 100">{{brand}} | {{model}}</h1>
-            <figure><img src="{{carImagePath}}"></figure>
-
-            <form action="/cars/contact" method="POST" class="needs-validation" novalidate>
-                <div class="form-row">
-                    <div class="form-group mb-2">
-                        <label for="mail" class="sr-only">Email del propietario</label>
-                        <input name="email" type="text" readonly class="form-control-plaintext" id="mail"
-                            value="jotabajopinedo@gmail.com">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="asunto" class="sr-only">Asunto</label>
-                        <input name="subject" type="text" readonly class="form-control-plaintext" id="asunto"
-                            value="Estoy interesado en su {{brand}}||{{model}}">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="mailInteresado">Tu email de contacto</label>
-                        <input name="buyerEmail" type="text" class="form-control" id="mailInteresado" placeholder="Ingrese su email"
-                            required>
-                        <div class="invalid-feedback">
-                            Es necesario tu email para mandarte una copia!
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="mensaje">Mensaje:</label>
-                        <textarea name="message" class="form-control" id="mensaje" rows="3" required></textarea>
-                        <div class="invalid-feedback">
-                            Que quieres comunicarle al propietario!
-                        </div>
-                    </div>
-                    <button class="btn btn-dark" type="submit">Enviar mensaje</button>
-            </form>
-        </div>
-
-        <div class="col-md-6">
-
-            <div class="coasters-index">
-
-                <h4>Descripción</h4>
-                <p>{{description}}</p>
-                <p><strong>Kilometros: </strong> {{kilometres}} Km | <strong> Precio: </strong> {{price}}</p>
-                <p>Matricula: {{plate}} | Estado del coche: {{state}}</p>
-
-                <h4>Localización</h4>
-                <ul>
-                    <li>Latitud: {{location.coordinates.[0]}}</li>
-                    <li>Longitud: {{location.coordinates.[1]}}</li>
-                </ul>
-
-                <hr>
-
-                <h5>El anunciante: </h5>
-                <p><strong>Nombre</strong> {{creatorId.username}}</p>
-                <p><strong>Telefono</strong> {{creatorId.phoneNumber}}</p>
-
-                <div>
-                    {{!-- <a href="/cars/{{_id}}/edit">Editar lugar</a> --}}
-
-                    <a href="/cars" class="btn btn-dark">Volver</a>
-                </div>
-
+                <a href="/cars" class="btn btn-dark">Volver</a>
+            </div>
+            <div class="col-md-3">
                 <form action="/cars/{{_id}}/delete" method="POST">
                     <button class="btn btn-danger" type="submit">Borrar</a>
                 </form>
 
             </div>
-
         </div>
     </div>
 
+    <div class="col-md-6">
+
+        <div class="coasters-index">
+
+            <h4>Descripción</h4>
+            <p>{{description}}</p>
+            <p><strong>Kilometros: </strong> {{kilometres}} Km | <strong> Precio: </strong> {{price}}</p>
+            <p>Matricula: {{plate}} | Estado del coche: {{state}}</p>
+
+            <h4>Localización</h4>
+            <ul>
+                <li>Latitud: {{location.coordinates.[0]}}</li>
+                <li>Longitud: {{location.coordinates.[1]}}</li>
+            </ul>
+                <div id="myMap"></div>
 
 
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
-    </script>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>El anunciante: </h5>
+                    <p><strong>Nombre</strong> {{creatorId.username}}</p>
+                    <p><strong>Telefono</strong> {{creatorId.phoneNumber}}</p>
+
+
+                </div>
+                <div class="col-md-8">
+                    <div class="form-row">
+                        <form action="/cars/contact" method="POST" class="needs-validation" novalidate>
+                            <div class="form-group mb-2">
+                                <label for="mail" class="sr-only">Email del propietario</label>
+                                <input name="email" type="text" readonly class="form-control-plaintext" id="mail"
+                                    value="{{creatorId.email}}">
+                            </div>
+
+                            {{!-- <div class="form-group mb-2">
+                            <label for="asunto" class="sr-only">Asunto</label>
+                            <input name="subject" type="text" readonly class="form-control-plaintext" id="asunto"
+                                value="Estoy interesado en su {{brand}}||{{model}}">
+                        </div> --}}
+                            <div class="form-group mb-2">
+                                <label for="mailInteresado">Tu email de contacto</label>
+                                <input name="buyerEmail" type="text" class="form-control" id="mailInteresado"
+                                    placeholder="Ingrese su email" required>
+                                <div class="invalid-feedback">
+                                    Es necesario tu email para mandarte una copia!
+                                </div>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="mensaje">Mensaje:</label>
+                                <textarea name="message" class="form-control" id="mensaje" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Que quieres comunicarle al propietario!
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+                <button class="btn btn-lg btn-info" type="submit">
+                    <label for="asunto" class="sr-only">Asunto</label>
+                    <input name="subject" type="text" readonly class="form-control-plaintext" id="asunto"
+                        value="Estoy interesado en su {{brand}}||{{model}}">
+                </button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+{{!-- AXIOS   Y API GOOGLE MAPS    --}}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/mainDetails.js"></script>
+{{!-- <script src="/javascripts/mapStyles.js"> </script> --}}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5zll-K3WnkRdKTRaRgbyeC_JkL76ygyM"></script>

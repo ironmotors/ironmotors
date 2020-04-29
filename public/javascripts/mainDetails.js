@@ -10,28 +10,27 @@ window.onload = () => {
         center: Madrid
     })
     
-    getPlaces()
     getCar()
 }
 
 
-function getPlaces() {
-    axios.get("/cars/api")
-        .then(placesApi => {
-            const place = placesApi.data
-            place.forEach(elm => {
-                console.log(elm)
+
+function getCar() {
+    axios.get("/cars/:carId/details/api")
+        .then(carDetailsApi => {
+            const car = carDetailsApi.data
+            // place.forEach(elm => {
+                console.log(car)
                 const center = {
-                    lat: elm.location.coordinates[0],
-                    lng: elm.location.coordinates[1]
+                    lat: car.location.coordinates[0],
+                    lng: car.location.coordinates[1]
                 }
                 new google.maps.Marker({
                     position: center,
                     map: myMap,
-                    title: elm.name
+                    title: car.name
                 })
-            })
+            // })
         })
          .catch(error => console.log(error))
 }
-
