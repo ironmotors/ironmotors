@@ -13,8 +13,8 @@
                     <label for="brand-list">Marca</label>
                     <select name="brand" class="form-control" id="brand-list">
                         <option>Selecionar</option>
-                        {{#each allCars}}
-                        <option value="{{brand}}">{{brand}}</option>
+                        {{#each carBrands}}
+                        <option value="{{this}}">{{this}}</option>
                         {{/each}}
                     </select>
                 </div>
@@ -46,8 +46,8 @@
                     <label for="state-list">Estado del vehiculo:</label>
                     <select name="state" class="form-control" id="state-list">
                         <option>Seleccionar</option>
-                        {{#each allCars}}
-                        <option value="{{state}}">{{state}}</option>
+                        {{#each carState}}
+                        <option value="{{this}}">{{this}}</option>
                         {{/each}}
                     </select>
                 </div>
@@ -59,8 +59,8 @@
                     <label for="adStatus-list">Estado del anuncio:</label>
                     <select name="adStatus" class="form-control" id="state-list">
                         <option>Seleccionar</option>
-                        {{#each allCars}}
-                        <option value="{{adStatus}}">{{adStatus}}</option>
+                        {{#each carAdStatus}}
+                        <option value="{{this}}">{{this}}</option>
                         {{/each}}
                     </select>
                 </div>

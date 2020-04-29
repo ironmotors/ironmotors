@@ -4,12 +4,12 @@
 
         <div class="col-md-6">
             <h1 style="font-weight: 100">{{brand}} | {{model}}</h1>
-            <figure><img src="{{profilePicPath}}"></figure>
+            <figure><img src="{{carImagePath}}"></figure>
         </div>
 
         <div class="col-md-6">
 
-            <div class="container coasters-index">
+            <div class="coasters-index">
 
                 <h4>Descripción</h4>
                 <p>{{description}}</p>
@@ -25,11 +25,11 @@
                 <hr>
 
                 <h5>El anunciante: </h5>
-                <p><strong>Nombre</strong>: {{creatorID.username}}</p>
-                <p><strong>Descripción</strong>: {{creatorID.phonenumber}}</p>
+                <p><strong>Nombre</strong> {{creatorId.username}}</p>
+                <p><strong>Telefono</strong> {{creatorId.phoneNumber}}</p>
 
                 <div>
-                    <a href="/cars/{{_id}}/edit">Editar lugar</a>
+                    {{!-- <a href="/cars/{{_id}}/edit">Editar lugar</a> --}}
 
                     <a href="/cars" class="btn btn-dark">Volver</a>
                 </div>

@@ -11,7 +11,6 @@ const Post = require('../models/post.model')
 router.get('/create', ensureLoggedIn(), (req, res, next) => res.render('forum/forum-create'))
 
 router.post('/create', cloudUploader.single('pepe'), ensureLoggedIn(), (req, res, next) => {
-    console.log(req.body.title)
     const newPost =
     {
         title: req.body.title,
