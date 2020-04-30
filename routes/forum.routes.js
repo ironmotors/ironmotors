@@ -43,7 +43,6 @@ router.post('/edit/:id', cloudUploader.single('paco'), ensureLoggedIn(), (req, r
     const editPost =
     {
         title: req.body.title,
-        subtitle: req.body.subtitle,
         comment: req.body.comment,
         postPicPath: req.file.url,
         creatorId: req.user._id

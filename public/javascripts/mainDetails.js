@@ -19,7 +19,6 @@ function getCar() {
     axios.get("/cars/:carId/details/api")
         .then(carDetailsApi => {
             const car = carDetailsApi.data
-            // place.forEach(elm => {
                 console.log(car)
                 const center = {
                     lat: car.location.coordinates[0],
@@ -28,9 +27,12 @@ function getCar() {
                 new google.maps.Marker({
                     position: center,
                     map: myMap,
+                    icon: {
+                        url: "images/car.png",
+                        scaledSize: new google.maps.Size(50, 50)
+                    },
                     title: car.name
                 })
-            // })
         })
          .catch(error => console.log(error))
 }

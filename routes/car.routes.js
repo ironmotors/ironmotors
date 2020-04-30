@@ -242,4 +242,15 @@ router.get("/api", (req, res, next) => {
 //     .catch(error => console.log(error))
 // })
 
+router.get('/:carId/details/api/', (req, res, next) => {
+    let carId = req.params.id;
+	Place.findOne({ _id: carId }, (error, onePlaceFromDB) => {
+		if (error) {
+			next(error)
+		} else {
+			res.json({ place: onePlaceFromDB });
+		}
+	});
+});
 module.exports = router;
+

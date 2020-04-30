@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 
 const postSchema = new Schema({
     title: String,
-    subtitle: String,
     comment: String,
     postPicPath: String,
     creatorId: {

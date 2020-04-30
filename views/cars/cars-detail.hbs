@@ -24,17 +24,15 @@
 
             <h4>Descripción</h4>
             <p>{{description}}</p>
-            <p><strong>Kilometros: </strong> {{kilometres}} Km | <strong> Precio: </strong> {{price}}</p>
+            <p><strong>Kilometros: </strong> {{kilometres}} Km | <strong> Precio: </strong> {{price}} &#8364;</p>
             <p>Matricula: {{plate}} | Estado del coche: {{state}}</p>
-
+            <h3><strong>{{adStatus}}</strong></h3>
             <h4>Localización</h4>
             <ul>
                 <li>Latitud: {{location.coordinates.[0]}}</li>
                 <li>Longitud: {{location.coordinates.[1]}}</li>
             </ul>
                 <div id="myMap"></div>
-
-
             <hr>
 
             <div class="row">
@@ -54,11 +52,6 @@
                                     value="{{creatorId.email}}">
                             </div>
 
-                            {{!-- <div class="form-group mb-2">
-                            <label for="asunto" class="sr-only">Asunto</label>
-                            <input name="subject" type="text" readonly class="form-control-plaintext" id="asunto"
-                                value="Estoy interesado en su {{brand}}||{{model}}">
-                        </div> --}}
                             <div class="form-group mb-2">
                                 <label for="mailInteresado">Tu email de contacto</label>
                                 <input name="buyerEmail" type="text" class="form-control" id="mailInteresado"
@@ -77,11 +70,12 @@
                     </div>
 
                 </div>
-                <button class="btn btn-lg btn-info" type="submit">
-                    <label for="asunto" class="sr-only">Asunto</label>
-                    <input name="subject" type="text" readonly class="form-control-plaintext" id="asunto"
-                        value="Estoy interesado en su {{brand}}||{{model}}">
-                </button>
+                        <button class="btn btn-info button-contact" type="submit">
+                            <label for="asunto" class="sr-only">Asunto</label>
+                            <input name="subject" type="text" readonly class="form-control-plaintext" id="asunto"
+                                value="Estoy interesado en su {{brand}} || {{model}}">
+                        </button>
+
                 </form>
             </div>
 

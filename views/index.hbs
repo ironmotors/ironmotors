@@ -44,11 +44,10 @@
 <div class="container">
     <div class="row justify-content-center">
         {{#each posts}}
-            <div class="col-md-4">
+            <div class="col-md-4 card">
                 <p><strong>Usuario: </strong>{{creatorId.username}}</p>
-                <img class="profile" src="{{postPicPath}}" alt="{{creatorId.username}}">
+                <img class="postpic" src="{{postPicPath}}" alt="{{creatorId.username}}">
                 <p><strong>Titulo: </strong>{{title}}</p>
-                <p><strong>Subtitulo: </strong>{{subtitle}}</p>
                 <p><strong>Comentario: </strong>{{comment}}</p>
             </div>
         {{/each}}
