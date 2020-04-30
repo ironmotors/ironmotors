@@ -7,7 +7,6 @@ const cloudUploader = require('../configs/cloudinary.config')
 const User = require('../models/user.model')
 const Post = require('../models/post.model')
 
-
 router.get('/create', ensureLoggedIn(), (req, res, next) => res.render('forum/forum-create'))
 
 router.post('/create', cloudUploader.single('pepe'), ensureLoggedIn(), (req, res, next) => {
@@ -34,6 +33,13 @@ router.get('/', ensureLoggedIn(), (req, res, next) => {
 router.get('/edit/:id', ensureLoggedIn(), (req, res, next) => {
     Post.findById(req.params.id)
         .populate('creatorId')
+        .then((editPost) => {
+            if (editPost.creatorId != req.user.id) {
+                return res.redirect('/forum')
+            } else {
+                return editPost
+            }
+        })
         .then((editPost) => res.render('forum/forum-edit',  editPost ))
         .catch(err => next(new Error(err)))
 }) 
@@ -65,23 +71,5 @@ router.post('/delete/:id', ensureLoggedIn(), (req, res, next) => {
         .then(() => res.redirect('/forum'))
         .catch(err => next(new Error(err)))
 })
-
-
-// router.post('/post-comment/delete/:id', checkAuth, (req, res, next) => {
-// 	const placePosted = req.body.reference
-// 	Comment.findById(req.params.id)
-// 		.then((result) => {
-// 			if (result.creatorId == req.user.id) {
-// 				return result.id
-// 			} else {
-// 				return res.redirect(`/works/show/${placePosted}`)
-// 			}
-// 		})
-// 		.then((resultId) => Comment.findByIdAndRemove(resultId))
-// 		.then(() => res.redirect(`/works/show/${placePosted}`))
-// 		.catch((err) => console.log(err))
-// })
-
-
 
 module.exports = router

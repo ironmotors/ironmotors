@@ -17,7 +17,13 @@
         <div class="col-md-6">
             <h1>Mis coches</h1>
             {{#each cars}}
-                <a href="/cars/{{_id}}/details"><img class="profile-car-img" src="{{carImagePath}}" alt="{{users.username}}"></a>
+                <a href="/cars/{{_id}}/details">
+                    <img class="profile-car-img" src="{{carImagePath}}" alt="{{users.username}}">
+                </a>
+                <a class="btn btn-info" href="/cars/{{_id}}/edit">Editar</a>
+                <form action="/cars/{{_id}}/delete" method="POST">
+                    <button class="btn btn-danger" type="submit">Borrar</a>
+                </form>
             {{/each}}
         </div>
     </div>

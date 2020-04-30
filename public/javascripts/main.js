@@ -11,7 +11,6 @@ window.onload = () => {
     })
     
     getPlaces()
-    getCar()
 }
 
 
@@ -32,7 +31,7 @@ function getPlaces() {
                         url: "images/car.png",
                         scaledSize: new google.maps.Size(50, 50)
                     },
-                    title: elm.name
+                    title: elm.brand
                 })
             })
         })

@@ -161,8 +161,23 @@ router.post(
 
 // Edit documents
 router.get("/:car_id/edit", ensureLoggedIn(), (req, res, next) => {
+  
   Car.findById(req.params.car_id)
-    .then((CarToEdit) => res.render("cars/cars-edit", CarToEdit))
+    .then((carToEdit) => {
+       const carBrands = [
+        "Abarth", "Alfa Romeo", "Alpine", "Aston Martin", "Audi", "Bentley", "BMW", "Borgward", "Bugatti", "Buick", "BYD", "Cadillac", "Caterham", "Chevrolet", "CitroÃ«n",
+        "Cupra", "Dacia", "Dodge", "DS Automobiles", "Faraday Future", "Ferrari", "Fiat", "Ford", "Fornasari","GTA Motor", "Honda","Hurtan", "Hyundai",
+        "Infiniti", "Isuzu", "Iveco", "Jaguar", "Jeep", "KIA Motors", "Koenigsegg", "KTM", "Lada", "Lamborghini", "Lancia",        "Land Rover",        "Lexus",        "Lotus",
+        "Mahindra",        "Maserati",        "Mazda",        "McLaren",        "Mercedes-Benz",        "Mini",
+        "Mitsubishi",        "Morgan",        "Nash",        "Nissan",        "Opel",        "Pagani",        "Peugeot",
+        "Piaggio",        "Polaris",        "Polestar",        "Porsche",        "Renault",        "Rolls-Royce",        "Saab",
+        "SEAT",        "Å koda",        "Smart",        "SsangYong",        "Subaru",        "Suzuki",        "TATA",
+        "Tesla",        "Toyota",        "Tramontana",        "UROVESA",        "Volkswagen",        "Volvo",        "W Motors",
+      ];
+      const carState = ["Nuevo", "Usado", "KM0"];
+      const carAdStatus = ["En venta", "Vendido", "Reservado"];
+      return res.render("cars/cars-edit", {carToEdit, carBrands, carState, carAdStatus})
+    })
     .catch((err) => next(new Error(err)));
 });
 
@@ -170,18 +185,22 @@ router.post("/:car_id/edit", ensureLoggedIn(), (req, res, next) => {
   const location = {
     type: "Point",
     coordinates: [req.body.latitud, req.body.longitud],
-  };
-  const { brand, model, manufacturingYear, plate, description } = req.body;
-
-  Car.findByIdAndUpdate(
+  }
+    Car.findByIdAndUpdate(
     req.params.car_id,
     {
-      brand,
-      model,
-      manufacturingYear,
-      plate,
-      description,
+      brand: req.body.brand,
+      model: req.body.model,
+      // carImagePath: req.file.url,
+      manufacturingYear: req.body.manufacturingYear,
+      creatorId: req.user.id,
+      plate: req.body.plate,
+      description: req.body.description,
+      state: req.body.state,
+      kilometres: req.body.kilometres,
       location,
+      price: req.body.price,
+      adStatus: req.body.adStatus,
     },
     {
       new: true,
@@ -195,7 +214,6 @@ router.post("/:car_id/edit", ensureLoggedIn(), (req, res, next) => {
 router.post("/:car_id/delete", ensureLoggedIn(), (req, res, next) => {
   Car.findById(req.params.car_id)
     .then((result) => {
-      console.log(result.creatorId, req.user.id);
       if (result.creatorId == req.user.id) {
         return result.id;
       } else {

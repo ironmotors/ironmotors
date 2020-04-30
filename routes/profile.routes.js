@@ -42,6 +42,8 @@ router.post('/edit/:id', cloudUploader.single('paco'), ensureLoggedIn(), (req, r
         .catch(err => next(new Error(err)))
 })
 
+
+
 router.get('/delete/:id', ensureLoggedIn(), (req, res, next) => {
     console.log(req.user.id)
     User.findByIdAndRemove(req.user.id)
