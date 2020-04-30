@@ -46,7 +46,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 95000,
-    location: { coordinates: [40.409715, -3.709706]
+    location: { coordinates: [40.429715, -3.709706]
     },
     price: 19000,
     adStatus: "En venta",
@@ -67,7 +67,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 155000,
-    location: { coordinates: [40.409724, -3.709715]
+    location: { coordinates: [40.419724, -3.709715]
     },
     price: 10000,
     adStatus: "En venta",
@@ -88,7 +88,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 15000,
-    location: { coordinates: [40.409722, -3.709714]
+    location: { coordinates: [40.409722, -3.719714]
     },
     price: 20000,
     adStatus: "En venta",
@@ -109,7 +109,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 205000,
-    location: { coordinates: [40.409727, -3.709718]
+    location: { coordinates: [40.409727, -3.729718]
     },
     price: 10000,
     adStatus: "En venta",
@@ -130,7 +130,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 95000,
-    location: { coordinates: [40.409729, -3.709719]
+    location: { coordinates: [40.409729, -3.721719]
     },
     price: 15000,
     adStatus: "En venta",
@@ -151,7 +151,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 15000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.419725, -3.719716]
     },
     price: 60000,
     adStatus: "Reservado",
@@ -172,7 +172,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "KM0",
     kilometres: 100,
-    location: { coordinates: [40.409712, -3.709704]
+    location: { coordinates: [40.429712, -3.729704]
     },
     price: 90000,
     adStatus: "En venta",
@@ -193,7 +193,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 150000,
-    location: { coordinates: [40.409725, -3.709716]
+    location: { coordinates: [40.419725, -3.729716]
     },
     price: 20000,
     adStatus: "En venta",
@@ -214,7 +214,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 25000,
-    location: { coordinates: [40.409825, -3.709816]
+    location: { coordinates: [40.400825, -3.829816]
     },
     price: 50000,
     adStatus: "En venta",
@@ -235,7 +235,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 100000,
-    location: { coordinates: [40.409625, -3.709616]
+    location: { coordinates: [40.425625, -3.770616]
     },
     price: 55000,
     adStatus: "En venta",
@@ -319,7 +319,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 32000,
-    location: { coordinates: [40.409123, -3.709716]
+    location: { coordinates: [40.419123, -3.733716]
     },
     price: 23000,
     adStatus: "Reservado",
@@ -340,7 +340,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 18000,
-    location: { coordinates: [40.409725, -3.709234]
+    location: { coordinates: [40.400725, -3.719234]
     },
     price: 40000,
     adStatus: "Vendido",
