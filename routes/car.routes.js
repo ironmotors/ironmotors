@@ -234,12 +234,25 @@ router.get("/api", (req, res, next) => {
     .catch((error) => console.log(error));
 });
 
-// router.get('/:carId/details/api', (req, res, next) => {
-//   Car.findById(req.params.carId)
-//     .then(car => {
-//       res.json(car);
-//     })
-//     .catch(error => console.log(error))
-// })
+router.get('/:_id/details/api', (req, res, next) => {
+  let carId = req.params._id /*"5ea9b20e3c9ba63dc32890ce" */
+  console.log(`-----------------------------------------------${carId}`)
+  // if (carId.match(/^[0-9a-fA-F]{24}$/)) {
+    // Yes, it's a valid ObjectId, proceed with `findById` call.
+    Car.findOne({_id: carId}, (error, oneCarFromDB) => {
+      if(error) {
+        next(error)
+      } else {
+        res.json({ car: oneCarFromDB })
+      }
+    })
+  // }
+
+  
+
+
+})
 
 module.exports = router;
+
+
