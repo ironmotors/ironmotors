@@ -46,6 +46,10 @@ function placeMarker(car) {
         let marker = new google.maps.Marker({
           map: myMap,
           position: center,
+          icon: {
+            url: "images/car.png",
+            scaledSize: new google.maps.Size(50, 50)
+          },
           title: car.brand,
         });
 
