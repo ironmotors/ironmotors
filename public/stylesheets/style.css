@@ -7,10 +7,13 @@ h1, h2, h3 {
 
 .navbar {
   margin-bottom: 70px;
-  background-color: #ddd; }
+  background: linear-gradient(45deg, #f44336 0%, #f44336 23%, black 23%, black 100%); }
   .navbar .nav-link {
     font-weight: 400;
-    color: #ef5350; }
+    color: #f44336;
+    transition: .2s all; }
+    .navbar .nav-link:hover {
+      color: white; }
   .navbar .navbar-brand {
     color: black; }
 
