@@ -133,13 +133,7 @@ router.post(
   cloudUploader.single("imgPathForm"),
   ensureLoggedIn(),
   (req, res, next) => {
-    const location = {
-      type: "Point",
-      coordinates: [req.body.latitud, req.body.longitud],
-    };
-
-    console.log(req.body, location);
-
+    
     Car.create({
       brand: req.body.brand,
       model: req.body.model,
@@ -150,7 +144,7 @@ router.post(
       description: req.body.description,
       state: req.body.state,
       kilometres: req.body.kilometres,
-      location: location,
+      location: req.body.location,
       price: req.body.price,
       adStatus: req.body.adStatus,
     })

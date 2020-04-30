@@ -40,12 +40,13 @@ const carSchema = new Schema({
         type: Number,
         // required: true
     },
-    location: {
-        type: {
-            type: String
-        },
-        coordinates: [Number]
-    },
+    location: String,
+    // location: {
+    //     type: {
+    //         type: String
+    //     },
+    //     coordinates: [Number]
+    // },
     price: {
         type: Number,
         // required: true
