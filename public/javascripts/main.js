@@ -1,5 +1,6 @@
-let myMap;
-let infoWindow;
+
+let myMap
+let infoWindow
 
 window.onload = () => {
     const Madrid = {
@@ -7,14 +8,14 @@ window.onload = () => {
         lng: -3.709716,
     };
 
-    infoWindow = new google.maps.InfoWindow();
+    infoWindow = new google.maps.InfoWindow()
 
     myMap = new google.maps.Map(document.getElementById("myMap"), {
         zoom: 15,
         center: Madrid,
     });
 
-    getPlaces();
+    getPlaces()
 };
 
 function getPlaces() {
@@ -24,16 +25,17 @@ function getPlaces() {
             const cars = carsApi.data;
             cars.forEach((car) => {
 
-                placeMarker(car);
+                placeMarker(car)
 
-            });
+            })
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error))
 }
 
 function placeMarker(car) {
-    let location = car.location;
-    let key = "AIzaSyA5zll-K3WnkRdKTRaRgbyeC_JkL76ygyM";
+
+    let location = car.location
+    let key = "AIzaSyA5zll-K3WnkRdKTRaRgbyeC_JkL76ygyM"
 
     axios
         .get(
@@ -41,8 +43,8 @@ function placeMarker(car) {
         )
         .then((geoRes) => {
 
-            let latitude = geoRes.data.results[0].geometry.location.lat;
-            let longitude = geoRes.data.results[0].geometry.location.lng;
+            let latitude = geoRes.data.results[0].geometry.location.lat
+            let longitude = geoRes.data.results[0].geometry.location.lng
             let center = {
                 lat: latitude,
                 lng: longitude
@@ -61,11 +63,16 @@ function placeMarker(car) {
                 icon: icon,
                 title: car.brand
             });
-            console.log(car)
+            
             google.maps.event.addListener(marker, "click", function () {
-                infoWindow.setContent("<div><strong>Propietario:</strong> " + car.brand + "</div><div><strong>Email:</strong><a href=#>" + car.creatorId.email + "</a></div>");
-                infoWindow.open(myMap, this);
+                infoWindow.setContent(`
+                <div><strong>Marca:</strong> ${car.brand} </div>
+                <div><strong>Modelo:</strong> ${car.model} </div>
+                `)
+                infoWindow.open(myMap, this)
             });
         })
-        .catch((err) => console.log("Error con el mapa social", err));
+        .catch((err) => console.log("Error con el mapa social", err))
 }
+
+

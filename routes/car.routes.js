@@ -231,7 +231,7 @@ router.post("/contact", (req, res, next) => {
       text: message,
       html: `<b>${message}</b>`
     })
-    .then((info) => res.render("email-sent", { email, subject, message, info }))
+    .then((info) => res.render("email-sent", { email, buyerEmail, subject, message, info }))
     .catch((error) => console.log(error));
 });
 
@@ -244,10 +244,9 @@ router.get("/api", (req, res, next) => {
 });
 
 router.get('/:_id/details/api', (req, res, next) => {
-  let carId = req.params._id /*"5ea9b20e3c9ba63dc32890ce" */
-  console.log(`-----------------------------------------------${carId}`)
-  // if (carId.match(/^[0-9a-fA-F]{24}$/)) {
-    // Yes, it's a valid ObjectId, proceed with `findById` call.
+
+  let carId = req.params._id 
+
     Car.findOne({_id: carId}, (error, oneCarFromDB) => {
       if(error) {
         next(error)
@@ -255,13 +254,7 @@ router.get('/:_id/details/api', (req, res, next) => {
         res.json({ car: oneCarFromDB })
       }
     })
-  // }
-
-  
-
 
 })
 
-module.exports = router;
-
-
+module.exports = router
