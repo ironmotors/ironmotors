@@ -176,10 +176,7 @@ router.get("/:car_id/edit", ensureLoggedIn(), (req, res, next) => {
 });
 
 router.post("/:car_id/edit", ensureLoggedIn(), cloudUploader.single("carImagePath"), (req, res, next) => {
-  const location = {
-    type: "Point",
-    coordinates: [req.body.latitud, req.body.longitud],
-  }
+
     Car.findByIdAndUpdate(
     req.params.car_id,
     {
@@ -192,7 +189,7 @@ router.post("/:car_id/edit", ensureLoggedIn(), cloudUploader.single("carImagePat
       description: req.body.description,
       state: req.body.state,
       kilometres: req.body.kilometres,
-      location,
+      location: req.body.location,
       price: req.body.price,
       adStatus: req.body.adStatus,
     },

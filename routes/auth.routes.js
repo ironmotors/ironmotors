@@ -39,7 +39,7 @@ router.post("/signup", ensureLoggedOut(), (req, res, next) => {
             let subject = `Codigo de confirmacion para Social Motors`
 
             mailer.sendMail({
-                from: 'Social Motors',
+                from: '"Social_Motors" <Social_Motors@gmail.com>',
                 to: email,
                 subject: subject,
                 text: message,
