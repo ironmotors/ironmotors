@@ -11,6 +11,7 @@ window.onload = () => {
     })
     
     getPlaces()
+    getCar()
 }
 
 
@@ -37,3 +38,4 @@ function getPlaces() {
         })
          .catch(error => console.log(error))
 }
+
