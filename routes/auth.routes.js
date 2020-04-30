@@ -36,10 +36,10 @@ router.post("/signup", ensureLoggedOut(), (req, res, next) => {
             const hashPass = bcrypt.hashSync(password, salt)
 
             let message = `Su codigo de confirmación es: http://localhost:3000/auth/confirm/${token}`
-            let subject = `Codigo de confirmacion para ExpressNodemailer`
+            let subject = `Codigo de confirmacion para Social Motors`
 
             mailer.sendMail({
-                from: '"Tu peor pesadilla👻"',
+                from: 'Social Motors',
                 to: email,
                 subject: subject,
                 text: message,

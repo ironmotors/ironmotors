@@ -25,8 +25,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 155000,
-    location: { coordinates: [40.409726, -3.709717]
-    },
+    location: "Calle Toledo, 70, Madrid",
     price: 65000,
     adStatus: "En venta",
   },
@@ -46,8 +45,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 95000,
-    location: { coordinates: [40.429715, -3.709706]
-    },
+    location: "Calle Toledo, 80, Madrid",
     price: 19000,
     adStatus: "En venta",
   },
@@ -67,8 +65,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 155000,
-    location: { coordinates: [40.419724, -3.709715]
-    },
+    location: "Calle Toledo, 170, Madrid",
     price: 10000,
     adStatus: "En venta",
   },
@@ -88,8 +85,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 15000,
-    location: { coordinates: [40.409722, -3.719714]
-    },
+    location: "Calle Toledo, 160, Madrid",
     price: 20000,
     adStatus: "En venta",
   },
@@ -109,8 +105,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 205000,
-    location: { coordinates: [40.409727, -3.729718]
-    },
+    location: "Calle Toledo, 150, Madrid",
     price: 10000,
     adStatus: "En venta",
   },
@@ -130,8 +125,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 95000,
-    location: { coordinates: [40.409729, -3.721719]
-    },
+    location: "Calle Toledo, 140, Madrid",
     price: 15000,
     adStatus: "En venta",
   },
@@ -151,8 +145,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 15000,
-    location: { coordinates: [40.419725, -3.719716]
-    },
+    location: "Calle Toledo, 130, Madrid",
     price: 60000,
     adStatus: "Reservado",
   },
@@ -172,8 +165,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "KM0",
     kilometres: 100,
-    location: { coordinates: [40.429712, -3.729704]
-    },
+    location: "Calle Toledo, 120, Madrid",
     price: 90000,
     adStatus: "En venta",
   },
@@ -193,8 +185,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 150000,
-    location: { coordinates: [40.419725, -3.729716]
-    },
+    location: "Calle Toledo, 77, Madrid",
     price: 20000,
     adStatus: "En venta",
   },
@@ -214,8 +205,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 25000,
-    location: { coordinates: [40.400825, -3.829816]
-    },
+    location: "Calle Toledo, 58, Madrid",
     price: 50000,
     adStatus: "En venta",
   },
@@ -235,8 +225,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 100000,
-    location: { coordinates: [40.425625, -3.770616]
-    },
+    location: "Calle Toledo, 97, Madrid",
     price: 55000,
     adStatus: "En venta",
   },
@@ -256,8 +245,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 19000,
-    location: { coordinates: [40.409255, -3.702516]
-    },
+    location: "Calle Toledo, 93, Madrid",
     price: 63000,
     adStatus: "En venta",
   },
@@ -277,8 +265,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 18000,
-    location: { coordinates: [40.409725, -3.709716]
-    },
+    location: "Calle Toledo, 76, Madrid",
     price: 40000,
     adStatus: "En venta",
   },
@@ -298,8 +285,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 27000,
-    location: { coordinates: [40.409725, -3.709716]
-    },
+    location: "Calle Toledo, 90, Madrid",
     price: 34000,
     adStatus: "En venta",
   },
@@ -319,8 +305,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 32000,
-    location: { coordinates: [40.419123, -3.733716]
-    },
+    location: "Calle Toledo, 90, Madrid",
     price: 23000,
     adStatus: "Reservado",
   },
@@ -340,8 +325,7 @@ const cars = [
     ownerName: "Social Motors",
     state: "Usado",
     kilometres: 18000,
-    location: { coordinates: [40.400725, -3.719234]
-    },
+    location: "Calle Toledo, 90, Madrid",
     price: 40000,
     adStatus: "Vendido",
   }

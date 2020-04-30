@@ -133,13 +133,7 @@ router.post(
   cloudUploader.single("imgPathForm"),
   ensureLoggedIn(),
   (req, res, next) => {
-    const location = {
-      type: "Point",
-      coordinates: [req.body.latitud, req.body.longitud],
-    };
-
-    console.log(req.body, location);
-
+    
     Car.create({
       brand: req.body.brand,
       model: req.body.model,
@@ -150,7 +144,7 @@ router.post(
       description: req.body.description,
       state: req.body.state,
       kilometres: req.body.kilometres,
-      location: location,
+      location: req.body.location,
       price: req.body.price,
       adStatus: req.body.adStatus,
     })
@@ -252,4 +246,25 @@ router.get("/api", (req, res, next) => {
     .catch((error) => console.log(error));
 });
 
+router.get('/:_id/details/api', (req, res, next) => {
+  let carId = req.params._id /*"5ea9b20e3c9ba63dc32890ce" */
+  console.log(`-----------------------------------------------${carId}`)
+  // if (carId.match(/^[0-9a-fA-F]{24}$/)) {
+    // Yes, it's a valid ObjectId, proceed with `findById` call.
+    Car.findOne({_id: carId}, (error, oneCarFromDB) => {
+      if(error) {
+        next(error)
+      } else {
+        res.json({ car: oneCarFromDB })
+      }
+    })
+  // }
+
+  
+
+
+})
+
 module.exports = router;
+
+

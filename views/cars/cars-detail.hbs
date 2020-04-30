@@ -21,13 +21,13 @@
             <p>{{description}}</p>
             <p><strong>Kilometros: </strong> {{kilometres}} Km | <strong> Precio: </strong> {{price}} &#8364;</p>
             <p>Matricula: {{plate}} | Estado del coche: {{state}}</p>
-            <h3 class="bg-success"><strong>{{adStatus}}</strong></h3>
-            <h4>Localización</h4>
-            <ul>
-                <li>Latitud: {{location.coordinates.[0]}}</li>
-                <li>Longitud: {{location.coordinates.[1]}}</li>
-            </ul>
-              
+
+            <h4>Ubicacion</h4>
+            <p>{{location}}</p>
+
+                <div id="myMap"></div>
+
+
             <hr>
 
             <div class="row">
@@ -77,6 +77,7 @@
         </div>
 
     </div>
+    <p id="carId" >{{_id}}</p>
 </div>
 
 
@@ -105,5 +106,6 @@
 {{!-- AXIOS   Y API GOOGLE MAPS    --}}
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/javascripts/mainDetails.js"></script>
-{{!-- <script src="/javascripts/mapStyles.js"> </script> --}}
+<script src="/javascripts/mapStyles.js"> </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5zll-K3WnkRdKTRaRgbyeC_JkL76ygyM"></script>
+{{!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5zll-K3WnkRdKTRaRgbyeC_JkL76ygyM&callback=initMap"></script> --}}
