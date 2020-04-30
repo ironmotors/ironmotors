@@ -34,13 +34,12 @@ router.get('/edit/:id', ensureLoggedIn(), (req, res, next) => {
     Post.findById(req.params.id)
         .populate('creatorId')
         .then((editPost) => {
-            if (editPost.creatorId != req.user.id) {
-                return res.redirect('/forum')
+            if (editPost.creatorId._id == req.user.id) {
+                return res.render('forum/forum-edit', editPost)
             } else {
-                return editPost
+                return res.redirect('/forum')
             }
         })
-        .then((editPost) => res.render('forum/forum-edit',  editPost ))
         .catch(err => next(new Error(err)))
 }) 
 

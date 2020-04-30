@@ -9,12 +9,14 @@
                         <img class="postpic" src="{{postPicPath}}" alt="{{title}}">
                         <p>Comentario: {{comment}}</p>
                         <p>Usuario: {{creatorId.username}}</p>
-                        <div>
-                            <a href="/forum/edit/{{_id}}" class="btn btn-dark">Editar Post</a>
-                        </div>
-                        <form action="/forum/delete/{{_id}}" method="POST">
-                            <input type="submit" class="btn btn-dark" value="Borrar Post">
-                        </form>
+                        {{!-- {{#if}} --}}
+                            <div>
+                                <a href="/forum/edit/{{_id}}" class="btn btn-dark">Editar Post</a>
+                            </div>
+                            <form action="/forum/delete/{{_id}}" method="POST">
+                                <input type="submit" class="btn btn-dark" value="Borrar Post">
+                            </form>
+                        {{!-- {{/if}} --}}
                 </div>
             {{/each}}
     </div>

@@ -3,35 +3,31 @@
     <div class="col-md-6">
         <h1 style="font-weight: 100">{{brand}} | {{model}}</h1>
         <figure><img src="{{carImagePath}}"></figure>
+
+        <div id="myMap"></div>
+
         <div class="row">
             <div class="col-md-3">
-                {{!-- <a href="/cars/{{_id}}/edit">Editar coche</a> --}}
-                <a href="/cars" class="btn btn-dark">Volver</a>
+                <a href="/cars" class="btn btn-secondary volver-details">Volver</a>
             </div>
-            {{!-- <div class="col-md-3">
-                <form action="/cars/{{_id}}/delete" method="POST">
-                    <button class="btn btn-danger" type="submit">Borrar</a>
-                </form>
-
-            </div> --}}
         </div>
     </div>
 
     <div class="col-md-6">
 
-        <div class="coasters-index">
+        <div class="car-details">
 
             <h4>Descripción</h4>
             <p>{{description}}</p>
             <p><strong>Kilometros: </strong> {{kilometres}} Km | <strong> Precio: </strong> {{price}} &#8364;</p>
             <p>Matricula: {{plate}} | Estado del coche: {{state}}</p>
-            <h3><strong>{{adStatus}}</strong></h3>
+            <h3 class="bg-success"><strong>{{adStatus}}</strong></h3>
             <h4>Localización</h4>
             <ul>
                 <li>Latitud: {{location.coordinates.[0]}}</li>
                 <li>Longitud: {{location.coordinates.[1]}}</li>
             </ul>
-                <div id="myMap"></div>
+              
             <hr>
 
             <div class="row">
@@ -69,7 +65,7 @@
                     </div>
 
                 </div>
-                        <button class="btn btn-info button-contact" type="submit">
+                        <button class="btn btn-success button-contact" type="submit">
                             <label for="asunto" class="sr-only">Asunto</label>
                             <input name="subject" type="text" readonly class="form-control-plaintext" id="asunto"
                                 value="Estoy interesado en su {{brand}} || {{model}}">

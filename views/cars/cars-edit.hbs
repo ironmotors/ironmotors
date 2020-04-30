@@ -11,7 +11,7 @@
 
         <div class="col-md-6">
 
-            <form action="/cars/{{carToEdit._id}}/edit" method="POST" {{!-- enctype="multipart/form-data" --}}>
+            <form action="/cars/{{carToEdit._id}}/edit" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="brand-list">Marca</label>
                     <select name="brand" class="form-control" id="brand-list">
@@ -25,11 +25,11 @@
                     <label for="model-input">Modelo</label>
                     <input name="model" value="{{carToEdit.model}}" type="text" class="form-control" id="model-input">
                 </div>
-                {{!-- <div class="form-group">
+                <div class="form-group">
                     <label for="picture-input">Imagen</label>
-                    <input name="carImagePath" value="{{carToEdit.carImagePath}}" type="file" class="form-control"
+                    <input name="carImagePath" value="{{carToEdit.carImagePath}}" type="file" class="form-control" required
                         id="picture-input">
-                </div> --}}
+                </div>
                 <div class="form-group">
                     <label for="manufacturingYear-input">Fecha de primera matriculación</label>
                     <input name="manufacturingYear" value="{{carToEdit.manufacturingYear}}" type="month" class="form-control"

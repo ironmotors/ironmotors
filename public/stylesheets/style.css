@@ -117,9 +117,23 @@ figure img {
 
 .button-contact input {
   text-align: center;
-  cursor: pointer; }
+  cursor: pointer;
+  color: white; }
 
 .postpic {
   width: 300px; }
+
+.car-details h4 {
+  margin: 17px 0 26px 0; }
+
+.bg-success {
+  margin: 50px 0;
+  color: white;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px 20px; }
+
+.volver-details {
+  margin-top: 50px; }
 
 /*# sourceMappingURL=style.css.map */

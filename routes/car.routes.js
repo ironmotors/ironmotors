@@ -181,7 +181,7 @@ router.get("/:car_id/edit", ensureLoggedIn(), (req, res, next) => {
     .catch((err) => next(new Error(err)));
 });
 
-router.post("/:car_id/edit", ensureLoggedIn(), (req, res, next) => {
+router.post("/:car_id/edit", ensureLoggedIn(), cloudUploader.single("carImagePath"), (req, res, next) => {
   const location = {
     type: "Point",
     coordinates: [req.body.latitud, req.body.longitud],
@@ -191,7 +191,7 @@ router.post("/:car_id/edit", ensureLoggedIn(), (req, res, next) => {
     {
       brand: req.body.brand,
       model: req.body.model,
-      // carImagePath: req.file.url,
+      carImagePath: req.file.url,
       manufacturingYear: req.body.manufacturingYear,
       creatorId: req.user.id,
       plate: req.body.plate,
@@ -252,23 +252,4 @@ router.get("/api", (req, res, next) => {
     .catch((error) => console.log(error));
 });
 
-// router.get('/:carId/details/api', (req, res, next) => {
-//   Car.findById(req.params.carId)
-//     .then(car => {
-//       res.json(car);
-//     })
-//     .catch(error => console.log(error))
-// })
-
-router.get('/:carId/details/api/', (req, res, next) => {
-    let carId = req.params.id;
-	Place.findOne({ _id: carId }, (error, onePlaceFromDB) => {
-		if (error) {
-			next(error)
-		} else {
-			res.json({ place: onePlaceFromDB });
-		}
-	});
-});
 module.exports = router;
-
