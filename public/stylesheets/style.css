@@ -122,7 +122,7 @@ figure img {
   width: 300px; }
 
 .button-contact {
-  width: 80%;
+  width: 450px;
   margin: 0 auto; }
 
 .button-contact input {
@@ -135,6 +135,11 @@ figure img {
 
 .car-details h4 {
   margin: 17px 0 26px 0; }
+
+.car-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
 
 .bg-success {
   margin: 50px 0;
@@ -193,5 +198,9 @@ figure img {
 
 .forum-list p {
   margin: 10px 0; }
+
+#myMap.map-details {
+  width: 540px;
+  height: 200px; }
 
 /*# sourceMappingURL=style.css.map */

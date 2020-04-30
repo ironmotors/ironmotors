@@ -1,11 +1,11 @@
 <div class="row justify-content-end">
-
     <div class="col-md-6 volver-details">
         <div>
             <h1 style="font-weight: 100">{{brand}} | {{model}}</h1>
             <figure><img src="{{carImagePath}}"></figure>
             <div id="myMap"></div>
         </div>
+
         <div class="row">
             <div class="col-md-3 ">
                 <a href="/cars" class="btn btn-secondary ">Volver</a>
@@ -13,73 +13,58 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 car-details">
+            <div>
+                <h4>Descripción</h4>
+                <p>{{description}}</p>
+                <p><strong>Kilometros: </strong> {{kilometres}} Km | <strong> Precio: </strong> {{price}} &#8364;</p>
+                <p>Matricula: {{plate}} | Estado del coche: {{state}}</p>
+                <h4>Ubicacion</h4>
+                <p>{{location}}</p>
 
-        <div class="car-details">
+                <hr>
 
-            <h4>Descripción</h4>
-            <p>{{description}}</p>
-            <p><strong>Kilometros: </strong> {{kilometres}} Km | <strong> Precio: </strong> {{price}} &#8364;</p>
-            <p>Matricula: {{plate}} | Estado del coche: {{state}}</p>
-
-            <h4>Ubicacion</h4>
-            <p>{{location}}</p>
-
-                <div id="myMap"></div>
-
-
-            <hr>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>El anunciante: </h5>
-                    <p><strong>Nombre</strong> {{creatorId.username}}</p>
-                    <p><strong>Telefono</strong> {{creatorId.phoneNumber}}</p>
-
-
-                </div>
-                <div class="col-md-8">
-                    <div class="form-row">
-                        <form action="/cars/contact" method="POST" class="needs-validation" novalidate>
-                            <div class="form-group mb-2">
-                                <label for="mail" class="sr-only">Email del propietario</label>
-                                <input name="email" type="text" readonly class="form-control-plaintext" id="mail"
-                                    value="{{creatorId.email}}">
+            </div>
+            <div class="col-md-4">
+                <h5>El anunciante: </h5>
+                <p><strong>Nombre</strong> {{creatorId.username}}</p>
+                <p><strong>Telefono</strong> {{creatorId.phoneNumber}}</p>
+            </div>
+            <div class="col-md-8">
+                <div class="form-row">
+                    <form action="/cars/contact" method="POST" class="needs-validation" novalidate>
+                        <div class="form-group mb-2">
+                            <label for="mail" class="sr-only">Email del propietario</label>
+                            <input name="email" type="text" readonly class="form-control-plaintext" id="mail"
+                                value="{{creatorId.email}}">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="mailInteresado">Tu email de contacto</label>
+                            <input name="buyerEmail" type="text" class="form-control" id="mailInteresado"
+                                placeholder="Ingrese su email" required>
+                            <div class="invalid-feedback">
+                                Es necesario tu email para mandarte una copia!
                             </div>
-
-                            <div class="form-group mb-2">
-                                <label for="mailInteresado">Tu email de contacto</label>
-                                <input name="buyerEmail" type="text" class="form-control" id="mailInteresado"
-                                    placeholder="Ingrese su email" required>
-                                <div class="invalid-feedback">
-                                    Es necesario tu email para mandarte una copia!
-                                </div>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="mensaje">Mensaje:</label>
+                            <textarea name="message" class="form-control" id="mensaje" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Que quieres comunicarle al propietario!
                             </div>
-                            <div class="form-group mb-2">
-                                <label for="mensaje">Mensaje:</label>
-                                <textarea name="message" class="form-control" id="mensaje" rows="3" required></textarea>
-                                <div class="invalid-feedback">
-                                    Que quieres comunicarle al propietario!
-                                </div>
-                            </div>
-                    </div>
-
-                </div>
+                        </div>
                         <button class="btn btn-success button-contact" type="submit">
                             <label for="asunto" class="sr-only">Asunto</label>
                             <input name="subject" type="text" readonly class="form-control-plaintext" id="asunto"
-                                value="Estoy interesado en su {{brand}} || {{model}}">
+                                value="Estoy interesado en su {{brand}}">
                         </button>
-
-                </form>
+                    </form>
+                </div>
             </div>
-
-        </div>
-
     </div>
-    <p id="carId" >{{_id}}</p>
 </div>
 
+    <p id="carId" style="display:none">{{_id}}</p>
 
 
 <script>
