@@ -4,19 +4,19 @@
 <div class="container">
     <div class="row">
             {{#each allPost}}
-                <div class="col-md-4 card">
+                <div class="col-md-4 card forum-list">
                         <h2>Titulo: {{title}}</h2>
                         <img class="postpic" src="{{postPicPath}}" alt="{{title}}">
                         <p>Comentario: {{comment}}</p>
                         <p>Usuario: {{creatorId.username}}</p>
-                        {{!-- {{#if}} --}}
+                        <div class="forum-list-button">
                             <div>
                                 <a href="/forum/edit/{{_id}}" class="btn btn-dark">Editar Post</a>
                             </div>
                             <form action="/forum/delete/{{_id}}" method="POST">
-                                <input type="submit" class="btn btn-dark" value="Borrar Post">
+                                <input type="submit" class="btn btn-danger btn-sm" value="Borrar Post">
                             </form>
-                        {{!-- {{/if}} --}}
+                        </div>
                 </div>
             {{/each}}
     </div>

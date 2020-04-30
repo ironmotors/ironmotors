@@ -1,5 +1,6 @@
 body {
-  font-weight: 200; }
+  font-weight: 200;
+  background-color: #eee; }
 
 h1, h2, h3 {
   font-weight: 200; }
@@ -56,11 +57,12 @@ h1, h2, h3 {
 
 .card:hover {
   transform: scale(1.01);
+  box-shadow: 0px 0px 50px 0px #9b9b9b;
   text-decoration: none;
   color: black; }
 
 footer {
-  background-color: rgba(138, 138, 138, 0.5);
+  background-color: rgba(138, 138, 138, 0.3);
   text-align: center;
   padding: 30px 0;
   margin-top: 50px; }
@@ -99,6 +101,14 @@ figure img {
   justify-content: space-evenly;
   align-items: center;
   margin: 20px; }
+  .car-button a {
+    background-color: #0097e6;
+    border: none;
+    transition: .3s all; }
+    .car-button a:hover {
+      background-color: #00a8ff;
+      transform: scale(1.1);
+      box-shadow: 0px 0px 10px 0px #9b9b9b; }
 
 .taller-pic {
   text-align: center;
@@ -133,7 +143,55 @@ figure img {
   display: inline-block;
   padding: 5px 20px; }
 
+.cars-edit img {
+  width: 100%; }
+
+.cars-edit-info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; }
+
+.cars-edit-info a {
+  display: inline-block;
+  width: 100px; }
+
 .volver-details {
-  margin-top: 50px; }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .volver-details a {
+    margin-top: 25px; }
+
+.car-view a {
+  display: block;
+  width: 50%;
+  margin: 50px auto;
+  background-color: #e1b12c;
+  border: none; }
+  .car-view a:hover {
+    background-color: #fbc531;
+    box-shadow: 0px 0px 5px 0px #9b9b9b; }
+
+.car-create {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; }
+  .car-create a {
+    width: 100px; }
+
+.forum-list-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0; }
+
+.forum-list h2 {
+  margin: 10px 0; }
+
+.forum-list img {
+  margin: 10px 0; }
+
+.forum-list p {
+  margin: 10px 0; }
 
 /*# sourceMappingURL=style.css.map */
