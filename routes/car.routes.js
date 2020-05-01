@@ -133,21 +133,10 @@ router.post(
   cloudUploader.single("imgPathForm"),
   ensureLoggedIn(),
   (req, res, next) => {
+
+    const {brand, model, manufacturingYear, plate, description, state, kilometres, location, price, adStatus} = req.body
     
-    Car.create({
-      brand: req.body.brand,
-      model: req.body.model,
-      carImagePath: req.file.url,
-      manufacturingYear: req.body.manufacturingYear,
-      creatorId: req.user.id,
-      plate: req.body.plate,
-      description: req.body.description,
-      state: req.body.state,
-      kilometres: req.body.kilometres,
-      location: req.body.location,
-      price: req.body.price,
-      adStatus: req.body.adStatus,
-    })
+    Car.create({ brand, model, carImagePath: req.file.url, manufacturingYear, creatorId: req.user.id, plate, description, state, kilometres, location, price, adStatus })
       .then(() => res.redirect("/cars"))
       .catch((err) => next(new Error(err)));
   }
