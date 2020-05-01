@@ -1,10 +1,10 @@
-const express = require("express");
-const router = express.Router();
-const cloudUploader = require("../configs/cloudinary.config");
-const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
+const express = require("express")
+const router = express.Router()
+const cloudUploader = require("../configs/cloudinary.config")
+const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login")
 
-const Car = require("../models/car.model");
-const User = require("../models/user.model");
+const Car = require("../models/car.model")
+const User = require("../models/user.model")
 
 // Read documents(list)
 
@@ -16,7 +16,7 @@ router.get("/", (req, res, next) => {
         allCars,
       })
     )
-    .catch((err) => console.log("Ha habido un error!", err));
+    .catch((err) => console.log("Ha habido un error!", err))
 });
 
 
@@ -28,7 +28,7 @@ router.get("/:carId/details", ensureLoggedIn("/login"), (req, res, next) => {
   Car.findById(req.params.carId)
     .populate("creatorId")
     .then((car) => res.render("cars/cars-detail", car))
-    .catch((err) => console.log("Ha habido un error!", err));
+    .catch((err) => console.log("Ha habido un error!", err))
 });
 
 // Create documents
@@ -36,96 +36,26 @@ router.get("/:carId/details", ensureLoggedIn("/login"), (req, res, next) => {
 router.get("/create", ensureLoggedIn(), (req, res, next) => {
   Car.find()
     .then((allCars) => {
-      const carBrands = [
-        "Abarth",
-        "Alfa Romeo",
-        "Alpine",
-        "Aston Martin",
-        "Audi",
-        "Bentley",
-        "BMW",
-        "Borgward",
-        "Bugatti",
-        "Buick",
-        "BYD",
-        "Cadillac",
-        "Caterham",
-        "Chevrolet",
-        "CitroÃ«n",
-        "Cupra",
-        "Dacia",
-        "Dodge",
-        "DS Automobiles",
-        "Faraday Future",
-        "Ferrari",
-        "Fiat",
-        "Ford",
-        "Fornasari",
-        "GTA Motor",
-        "Honda",
-        "Hurtan",
-        "Hyundai",
-        "Infiniti",
-        "Isuzu",
-        "Iveco",
-        "Jaguar",
-        "Jeep",
-        "KIA Motors",
-        "Koenigsegg",
-        "KTM",
-        "Lada",
-        "Lamborghini",
-        "Lancia",
-        "Land Rover",
-        "Lexus",
-        "Lotus",
-        "Mahindra",
-        "Maserati",
-        "Mazda",
-        "McLaren",
-        "Mercedes-Benz",
-        "Mini",
-        "Mitsubishi",
-        "Morgan",
-        "Nash",
-        "Nissan",
-        "Opel",
-        "Pagani",
-        "Peugeot",
-        "Piaggio",
-        "Polaris",
-        "Polestar",
-        "Porsche",
-        "Renault",
-        "Rolls-Royce",
-        "Saab",
-        "SEAT",
-        "Å koda",
-        "Smart",
-        "SsangYong",
-        "Subaru",
-        "Suzuki",
-        "TATA",
-        "Tesla",
-        "Toyota",
-        "Tramontana",
-        "UROVESA",
-        "Volkswagen",
-        "Volvo",
-        "W Motors",
-      ];
-      const carState = ["Nuevo", "Usado", "KM0"];
-      const carAdStatus = ["En venta", "Vendido", "Reservado"];
+      const carBrands = [ "Abarth", "Alfa Romeo", "Alpine", "Aston Martin", "Audi", "Bentley", "BMW", "Borgward", "Bugatti",
+        "Buick", "BYD", "Cadillac", "Caterham", "Chevrolet", "Citroen", "Cupra", "Dacia", "Dodge", "DS Automobiles", "Faraday Future",
+        "Ferrari", "Fiat", "Ford", "Fornasari", "GTA Motor", "Honda", "Hurtan", "Hyundai", "Infiniti", "Isuzu", "Iveco", "Jaguar",
+        "Jeep", "KIA Motors", "Koenigsegg", "KTM", "Lada", "Lamborghini", "Lancia", "Land Rover", "Lexus", "Lotus", "Mahindra",
+        "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "Mini", "Mitsubishi", "Morgan", "Nash", "Nissan", "Opel", "Pagani",
+        "Peugeot", "Piaggio", "Polaris", "Polestar", "Porsche", "Renault", "Rolls-Royce", "Saab", "SEAT", "Å koda", "Smart", "SsangYong",
+        "Subaru", "Suzuki", "TATA", "Tesla", "Toyota", "Tramontana", "UROVESA", "Volkswagen", "Volvo", "W Motors"
+      ]
+      const carState = ["Nuevo", "Usado", "KM0"]
+      const carAdStatus = ["En venta", "Vendido", "Reservado"]
 
       return res.render("cars/cars-create", {
         allCars,
         carBrands,
         carState,
         carAdStatus,
-      });
+      })
     })
 
-    .catch((err) => next(new Error(err)));
+    .catch((err) => next(new Error(err)))
 });
 
 router.post(
@@ -136,9 +66,10 @@ router.post(
 
     const {brand, model, manufacturingYear, plate, description, state, kilometres, location, price, adStatus} = req.body
     
-    Car.create({ brand, model, carImagePath: req.file.url, manufacturingYear, creatorId: req.user.id, plate, description, state, kilometres, location, price, adStatus })
+    Car.create({ brand, model, carImagePath: req.file.url, manufacturingYear, creatorId: req.user.id, plate, description, 
+      state, kilometres, location, price, adStatus })
       .then(() => res.redirect("/cars"))
-      .catch((err) => next(new Error(err)));
+      .catch((err) => next(new Error(err)))
   }
 );
 
@@ -147,62 +78,43 @@ router.get("/:car_id/edit", ensureLoggedIn(), (req, res, next) => {
   
   Car.findById(req.params.car_id)
     .then((carToEdit) => {
-       const carBrands = [
-        "Abarth", "Alfa Romeo", "Alpine", "Aston Martin", "Audi", "Bentley", "BMW", "Borgward", "Bugatti", "Buick", "BYD", "Cadillac", "Caterham", "Chevrolet", "Citroen",
-        "Cupra", "Dacia", "Dodge", "DS Automobiles", "Faraday Future", "Ferrari", "Fiat", "Ford", "Fornasari","GTA Motor", "Honda","Hurtan", "Hyundai",
-        "Infiniti", "Isuzu", "Iveco", "Jaguar", "Jeep", "KIA Motors", "Koenigsegg", "KTM", "Lada", "Lamborghini", "Lancia",        "Land Rover",        "Lexus",        "Lotus",
-        "Mahindra",        "Maserati",        "Mazda",        "McLaren",        "Mercedes-Benz",        "Mini",
-        "Mitsubishi",        "Morgan",        "Nash",        "Nissan",        "Opel",        "Pagani",        "Peugeot",
-        "Piaggio",        "Polaris",        "Polestar",        "Porsche",        "Renault",        "Rolls-Royce",        "Saab",
-        "SEAT",        "Å koda",        "Smart",        "SsangYong",        "Subaru",        "Suzuki",        "TATA",
-        "Tesla",        "Toyota",        "Tramontana",        "UROVESA",        "Volkswagen",        "Volvo",        "W Motors",
-      ];
-      const carState = ["Nuevo", "Usado", "KM0"];
-      const carAdStatus = ["En venta", "Vendido", "Reservado"];
+      const carBrands = [ "Abarth", "Alfa Romeo", "Alpine", "Aston Martin", "Audi", "Bentley", "BMW", "Borgward", "Bugatti",
+        "Buick", "BYD", "Cadillac", "Caterham", "Chevrolet", "Citroen", "Cupra", "Dacia", "Dodge", "DS Automobiles", "Faraday Future",
+        "Ferrari", "Fiat", "Ford", "Fornasari", "GTA Motor", "Honda", "Hurtan", "Hyundai", "Infiniti", "Isuzu", "Iveco", "Jaguar",
+        "Jeep", "KIA Motors", "Koenigsegg", "KTM", "Lada", "Lamborghini", "Lancia", "Land Rover", "Lexus", "Lotus", "Mahindra",
+        "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "Mini", "Mitsubishi", "Morgan", "Nash", "Nissan", "Opel", "Pagani",
+        "Peugeot", "Piaggio", "Polaris", "Polestar", "Porsche", "Renault", "Rolls-Royce", "Saab", "SEAT", "Å koda", "Smart", "SsangYong",
+        "Subaru", "Suzuki", "TATA", "Tesla", "Toyota", "Tramontana", "UROVESA", "Volkswagen", "Volvo", "W Motors"
+      ]
+      const carState = ["Nuevo", "Usado", "KM0"]
+      const carAdStatus = ["En venta", "Vendido", "Reservado"]
       return res.render("cars/cars-edit", {carToEdit, carBrands, carState, carAdStatus})
     })
-    .catch((err) => next(new Error(err)));
+    .catch((err) => next(new Error(err)))
 });
 
 router.post("/:car_id/edit", ensureLoggedIn(), cloudUploader.single("carImagePath"), (req, res, next) => {
 
-    Car.findByIdAndUpdate(
-    req.params.car_id,
-    {
-      brand: req.body.brand,
-      model: req.body.model,
-      carImagePath: req.file.url,
-      manufacturingYear: req.body.manufacturingYear,
-      creatorId: req.user.id,
-      plate: req.body.plate,
-      description: req.body.description,
-      state: req.body.state,
-      kilometres: req.body.kilometres,
-      location: req.body.location,
-      price: req.body.price,
-      adStatus: req.body.adStatus,
-    },
+  const {brand, model, manufacturingYear, plate, description, state, kilometres, location, price, adStatus} = req.body
+
+
+    Car.findByIdAndUpdate( req.params.car_id, { brand, model, carImagePath: req.file.url, manufacturingYear, creatorId: req.user.id, plate, 
+      description, state, kilometres, location, price, adStatus },
     {
       new: true,
     }
   )
     .then((editedCar) => res.redirect(`/cars/${editedCar._id}/details`))
-    .catch((err) => next(new Error(err)));
+    .catch((err) => next(new Error(err)))
 });
 
 //Delete document
 router.post("/:car_id/delete", ensureLoggedIn(), (req, res, next) => {
   Car.findById(req.params.car_id)
-    .then((result) => {
-      if (result.creatorId == req.user.id) {
-        return result.id;
-      } else {
-        return res.redirect("/cars");
-      }
-    })
-    .then((resultId) => Car.findByIdAndRemove(resultId))
-    .then(res.redirect("/cars"))
-    .catch((err) => next(new Error(err)));
+    .then(result => (result.creatorId == req.user.id) ? result.id : res.redirect("/cars"))
+    .then(resultId => Car.findByIdAndRemove(resultId))
+    .then(() => res.redirect("/cars"))
+    .catch(err => next(new Error(err)))
 });
 
 // Nodemailer send email to owner of the car
