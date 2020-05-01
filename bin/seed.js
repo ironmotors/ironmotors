@@ -1,6 +1,6 @@
 require('dotenv').config()
-const mongoose = require("mongoose");
-const Car = require("../models/car.model");
+const mongoose = require("mongoose")
+const Car = require("../models/car.model")
 const User = require("../models/user.model")
 
 const dbtitle = 'Social_Motors'
