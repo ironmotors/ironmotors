@@ -1,9 +1,10 @@
+require('dotenv').config()
 const mongoose = require("mongoose");
 const Car = require("../models/car.model");
 const User = require("../models/user.model")
 
 const dbtitle = 'Social_Motors'
-mongoose.connect(`mongodb://localhost/${dbtitle}`, { useUnifiedTopology: true, useNewUrlParser: true })
+mongoose.connect(process.env.DBREMOTO, { useUnifiedTopology: true, useNewUrlParser: true })
 
 User.collection.drop()
 Car.collection.drop()
