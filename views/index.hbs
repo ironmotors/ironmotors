@@ -45,9 +45,9 @@
 
 <h1>Foro</h1>
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" id="forum-view">
         {{#each posts}}
-            <div class="col-md-4 card">
+            <div class="col-md-3 card">
                 <p><strong>Usuario: </strong>{{creatorId.username}}</p>
                 <img class="postpic" src="{{postPicPath}}" alt="{{creatorId.username}}">
                 <p><strong>Titulo: </strong>{{title}}</p>
