@@ -49,7 +49,7 @@ router.post("/signup", ensureLoggedOut(), (req, res, next) => {
                 .catch(error => console.log('No se ha mandado el mail', error));
 
             User.create({ username, password: hashPass, email, confirmationCode: token })
-                .then((user) => res.render("email-sent", user))
+                .then((user) => res.render("email-signup-sent", user))
                 .catch(() => res.render("auth/signup", { errorMsg: "No se pudo crear el usuario" }))
         })
         .catch(error => next(error))
