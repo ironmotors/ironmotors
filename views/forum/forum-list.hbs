@@ -1,17 +1,19 @@
 <h1>Foro</h1>
-<a href="/forum/create" class=" btn btn-dark">Crear Post</a>
+<a href="/forum/create" class=" btn btn-success">Crear Post</a>
 
 <div class="container">
     <div class="row">
             {{#each allPost}}
                 <div class="col-md-4 card forum-list">
-                        <h2>Titulo: {{title}}</h2>
-                        <img class="postpic" src="{{postPicPath}}" alt="{{title}}">
-                        <p>Comentario: {{comment}}</p>
-                        <p>Usuario: {{creatorId.username}}</p>
+                        <div>
+                            <h2>Titulo: {{title}}</h2>
+                            <img class="postpic" src="{{postPicPath}}" alt="{{title}}">
+                            <p>Comentario: {{comment}}</p>
+                            <p>Usuario: {{creatorId.username}}</p>
+                        </div>
                         <div class="forum-list-button">
                             <div>
-                                <a href="/forum/edit/{{_id}}" class="btn btn-dark">Editar Post</a>
+                                <a href="/forum/edit/{{_id}}" class="btn btn-dark btn-sm">Editar Post</a>
                             </div>
                             <form action="/forum/delete/{{_id}}" method="POST">
                                 <input type="submit" class="btn btn-danger btn-sm" value="Borrar Post">

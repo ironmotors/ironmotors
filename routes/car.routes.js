@@ -159,7 +159,7 @@ router.get("/:car_id/edit", ensureLoggedIn(), (req, res, next) => {
   Car.findById(req.params.car_id)
     .then((carToEdit) => {
        const carBrands = [
-        "Abarth", "Alfa Romeo", "Alpine", "Aston Martin", "Audi", "Bentley", "BMW", "Borgward", "Bugatti", "Buick", "BYD", "Cadillac", "Caterham", "Chevrolet", "CitroÃ«n",
+        "Abarth", "Alfa Romeo", "Alpine", "Aston Martin", "Audi", "Bentley", "BMW", "Borgward", "Bugatti", "Buick", "BYD", "Cadillac", "Caterham", "Chevrolet", "Citroen",
         "Cupra", "Dacia", "Dodge", "DS Automobiles", "Faraday Future", "Ferrari", "Fiat", "Ford", "Fornasari","GTA Motor", "Honda","Hurtan", "Hyundai",
         "Infiniti", "Isuzu", "Iveco", "Jaguar", "Jeep", "KIA Motors", "Koenigsegg", "KTM", "Lada", "Lamborghini", "Lancia",        "Land Rover",        "Lexus",        "Lotus",
         "Mahindra",        "Maserati",        "Mazda",        "McLaren",        "Mercedes-Benz",        "Mini",
@@ -238,10 +238,10 @@ router.post("/contact", (req, res, next) => {
 router.get("/api", (req, res, next) => {
   Car.find()
     .then((cars) => {
-      res.json(cars);
+      res.json(cars)
     })
-    .catch((error) => console.log(error));
-});
+    .catch((error) => console.log(error))
+})
 
 router.get('/:_id/details/api', (req, res, next) => {
 
@@ -254,7 +254,6 @@ router.get('/:_id/details/api', (req, res, next) => {
         res.json({ car: oneCarFromDB })
       }
     })
-
 })
 
 module.exports = router

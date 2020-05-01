@@ -9,7 +9,21 @@ h1, h2, h3 {
 
 .navbar {
   margin-bottom: 70px;
+  background: linear-gradient(45deg, #f44336 0%, #f44336 23%, rgba(0, 0, 0, 1) 23%, rgba(0, 0, 0, 1) 100%);
+  .nav-link{
+    font-weight: 400;
+    color: #f44336;
+    transition: .2s all;
+    &:hover{
+      color:white;
+    }
+  }
+  .navbar-brand{
+    color: black;
+  }
 }
+
+
 
 #errorMsg {
   background-color: red;
@@ -82,15 +96,6 @@ figure img{
   width:100%;
 }
 
-.profile-car-img{
-  width: 100%;
-  margin: 10px 0;
-  transition: .3s all;
-}
-.profile-car-img:hover{
-  transform: scale(.98);
-  filter: grayscale(70%);
-}
 .carousel-item{
   height: 400px;
   margin-bottom: 30px;
@@ -98,7 +103,8 @@ figure img{
 .carousel-item img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: bottom;
 }
 .about-us{
   display: flex;
@@ -137,7 +143,7 @@ figure img{
   width: 300px;
 }
 .button-contact {
-  width:80%;
+  width:450px;
   margin: 0 auto;
 }
 .button-contact input {
@@ -146,11 +152,30 @@ figure img{
   color:white;
 }
 .postpic{
-  width:300px;
+  width:100%;
+  height: auto;
 }
 .car-details h4{
   margin: 17px 0 26px 0;
 }
+.car-details{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.adStatus{
+  font-weight: 700;
+  font-size: 2em;
+  background-color: #e1b12c;
+  color: white;
+  text-align: center;
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
 .bg-success {
   margin: 50px 0;
   color:white;
@@ -204,11 +229,17 @@ figure img{
 
 .forum-list-button{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   margin: 15px 0;
+  form{
+    margin-left: 8px;
+  }
 }
 .forum-list{
+  display: flex;
+  justify-content: space-between;
+  
   h2{
     margin: 10px 0 ;
   }
@@ -219,3 +250,79 @@ figure img{
     margin: 10px 0;
   }
 }
+#myMap.map-details{
+  width:540px;
+  height: 200px;
+}
+.profile-button{
+  display: flex;
+  justify-content: space-around;
+  border:none;
+  a{
+    background-color:#0097e6;
+    border:none;
+    transition: .3s all;
+  }
+  a:hover{
+    background-color:#00a8ff;
+    border:none;
+  }
+}
+.profile-button button{
+  transition: .3s all;
+  border: none;
+}
+.profile-button button:hover{
+  border: none;
+}
+
+.profile-car-img {
+  transition: .3s all;
+  width: 100%;
+}
+.car-collection{
+  transition: .3s all;
+  position:relative;
+  &:hover{
+    transform: scale(.98);
+    .profile-car-img{
+      filter: grayscale(70%);
+    }
+  }
+  .profile-button{
+    position: absolute;
+    padding: 8px;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 99%, rgba(0, 0, 0, 1) 100%);
+  }
+}
+.car-collection + .car-collection {
+  margin-top: 24px;
+}
+
+.profile-info a{
+    background-color:#0097e6;
+    transition: .3s all;
+    border:none;
+  }
+  
+.profile-info a:hover {
+    background-color:#00a8ff;
+    transform: scale(1.1);
+    border:none;
+  }
+  .contact-us{
+    display:flex;
+    justify-content: flex-end;
+    width: 100%;
+    a{
+      background-color:#e1b12c;
+      border:none;
+      transition: .3s all;
+      &:hover{
+        background-color:#fbc531;
+        border:none;
+      }
+    }
+  }
